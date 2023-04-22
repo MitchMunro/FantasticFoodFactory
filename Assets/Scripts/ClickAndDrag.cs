@@ -4,6 +4,23 @@ public class ClickAndDrag : MonoBehaviour
 {
     private Vector3 offset;
     private bool isDragging = false;
+    private float rotateSpeed = 2.3f;
+
+    private void FixedUpdate()
+    {
+        if (isDragging)
+        {
+            if (Input.GetKey(KeyCode.Q))
+            {
+                this.transform.Rotate(Vector3.forward * rotateSpeed);
+            }
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                this.transform.Rotate(-Vector3.forward * rotateSpeed);
+            }
+        }
+    }
 
     private void OnMouseDown()
     {

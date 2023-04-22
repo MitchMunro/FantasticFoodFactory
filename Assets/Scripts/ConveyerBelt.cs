@@ -15,8 +15,10 @@ public class ConveyerBelt : MonoBehaviour
         if (collision.collider.tag == "ScoringObject")
         {
             var rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            float direction = isGoRight ? 1 : -1;
-            rb.AddForce(new Vector2(boostRate * direction, 0));
+
+            Vector2 pushDirection = transform.right;
+
+            rb.AddForce(pushDirection * boostRate);
 
         }
     }
