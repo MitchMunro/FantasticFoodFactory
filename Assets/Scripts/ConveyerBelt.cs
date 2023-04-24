@@ -10,9 +10,8 @@ public class ConveyerBelt : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log(collision);
 
-        if (collision.collider.tag == "ScoringObject")
+        if (collision.collider.tag == "MovableObject")
         {
             var rb = collision.gameObject.GetComponent<Rigidbody2D>();
 
