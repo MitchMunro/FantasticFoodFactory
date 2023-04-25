@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BallSpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public GameObject ball;
-    public float spawnRate = 2;
+    public float spawnRate = 0.8f;
     public SpriteRenderer sprite;
-    private bool isOn = false;
     public bool isBlue = false;
+    private bool isFactoryPlaying;
 
 
     // Start is called before the first frame update
@@ -21,25 +21,27 @@ public class BallSpawner : MonoBehaviour
         sprite.color = Color.red;
     }
 
-    void OnMouseDown()
+    private void Update()
     {
         // Toggle the sprite color between red and green when clicked
-        if (isOn)
-        {
-            sprite.color = Color.red;
-            isOn = false;
-        }
-        else
+        if (GameManager.Instance.isFactoryPlaying)
         {
             if (isBlue) sprite.color = Color.blue;
             else sprite.color = Color.green;
-            isOn = true;
+        }
+        else
+        {
+            sprite.color = Color.red;
         }
     }
 
     public IEnumerator BallSpawn()
     {
-        if (isOn) Instantiate(ball, this.gameObject.transform.position, ball.transform.rotation);
+        if (GameManager.Instance.isFactoryPlaying) Instantiate(
+            ball,
+            this.gameObject.transform.position,
+            ball.transform.rotation,
+            GameManager.Instance.FoodSpawnedParent.transform);
         yield return new WaitForSeconds(spawnRate);
         StartCoroutine(BallSpawn());
 

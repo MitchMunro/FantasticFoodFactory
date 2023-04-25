@@ -7,8 +7,11 @@ public class Goal : MonoBehaviour
 {
     public GameObject targetObject;
     private GameObject _previousTargetObject;
-    public FoodComponent foodCompTargetObject;
+    private FoodComponent foodCompTargetObject;
     private GameObject foodIcon;
+    private int scoreAmount = 5;
+
+    public GameObject lid;
 
     private void Awake()
     {
@@ -67,8 +70,7 @@ public class Goal : MonoBehaviour
         if (foodCompScoredObject != null &&
             foodCompScoredObject.foodType == foodCompTargetObject.foodType)
         {
-            Debug.Log($"Score! Food type: {foodCompTargetObject.foodType}");
-
+            GameManager.Instance.Score(scoreAmount);
         }
         else
         {
@@ -89,6 +91,17 @@ public class Goal : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void OpenLid()
+    {
+        lid.SetActive(false);
+    }
+
+    public void CloseLid()
+    {
+        lid.SetActive(true);
+
     }
 
 }

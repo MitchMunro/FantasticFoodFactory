@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5649999932321951905}
   - component: {fileID: 5649999932321951910}
-  - component: {fileID: 4534204021590300661}
+  - component: {fileID: -2195834668942096890}
   - component: {fileID: 5649999932321951911}
   - component: {fileID: 915235686463207913}
   m_Layer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 391980c5f88bb46cb867f2843361ea6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4534204021590300661
+--- !u!114 &-2195834668942096890
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5649999932321951908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194c596089597498482cff6bfc590643, type: 3}
+  m_Script: {fileID: 11500000, guid: 01df7fb4109d84033b7c192054fa944a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   foodType: 0
@@ -178,5 +178,5 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
