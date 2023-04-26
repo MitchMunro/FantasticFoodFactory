@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Spawner : MonoBehaviour
 {
     public GameObject ball;
-    public float spawnRate = 0.8f;
+    public float spawnRate = 1.6f;
     public SpriteRenderer sprite;
     public bool isBlue = false;
     private bool isFactoryPlaying;
@@ -42,7 +42,8 @@ public class Spawner : MonoBehaviour
             this.gameObject.transform.position,
             ball.transform.rotation,
             GameManager.Instance.FoodSpawnedParent.transform);
-        yield return new WaitForSeconds(spawnRate);
+        yield return new WaitForSeconds(
+            spawnRate / GameManager.Instance.SpeedSliderMultiplier());
         StartCoroutine(BallSpawn());
 
     }

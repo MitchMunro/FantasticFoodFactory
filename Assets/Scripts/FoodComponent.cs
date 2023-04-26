@@ -21,5 +21,6 @@ public enum FoodType
 {
     Bun,
     Burger,
-    Steak
+    Steak,
+    Icecream
 }

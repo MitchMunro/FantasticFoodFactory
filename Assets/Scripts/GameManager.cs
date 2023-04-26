@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI moneyGoalText;
     private TextMeshProUGUI timeText;
     private TextMeshProUGUI timeGoalText;
+
+    public GameObject speedSliderGameObj;
+    private Slider speedSlider;
 
     public float timerCount { get; private set; }
     public int moneyScore { get; private set; }
@@ -66,6 +70,8 @@ public class GameManager : MonoBehaviour
         if (GoalPipe1GameObj != null) GoalPipe1 = GoalPipe1GameObj.GetComponent<Goal>();
         if (GoalPipe2GameObj != null) GoalPipe2 = GoalPipe1GameObj.GetComponent<Goal>();
         if (GoalPipe3GameObj != null) GoalPipe3 = GoalPipe1GameObj.GetComponent<Goal>();
+
+        speedSlider = speedSliderGameObj.GetComponent<Slider>();
 
 
 
@@ -166,6 +172,11 @@ public class GameManager : MonoBehaviour
         }
 
         uIManager.statusPanel.SetActive(false);
+    }
+
+    public float SpeedSliderMultiplier()
+    {
+        return speedSlider.value;
     }
 
 }
