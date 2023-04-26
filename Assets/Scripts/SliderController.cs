@@ -7,4 +7,9 @@ public class SliderController : MonoBehaviour
 
     public Color colorSlow = Color.green;
     public Color colorFast = Color.red;
+
+    public void change(float value)
+    {
+        sliderFill.color = Color.Lerp(colorSlow, colorFast, value);
+    }
 }

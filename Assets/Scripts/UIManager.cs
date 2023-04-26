@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
 
     public Sprite playButtonSprite;
     public Sprite pauseButtonSprite;
+    public Sprite replayButtonSprite;
 
     private Image image;
 
@@ -34,15 +35,20 @@ public class UIManager : MonoBehaviour
         statusPanel.SetActive(false);
 
 
-        if (GameManager.Instance.isFactoryPlaying == true)
+        if (GameManager.Instance.playPauseButtonImage == ButtonState.Pause)
         {
             ButtonChangedToPlay();
             GameManager.Instance.StopFacrotyAndReset();
         }
-        else if (GameManager.Instance.isFactoryPlaying == false)
+        else if (GameManager.Instance.playPauseButtonImage == ButtonState.Play)
         {
             ButtonChangedToPause();
             GameManager.Instance.PlayFactory();
+        }
+        else if(GameManager.Instance.playPauseButtonImage == ButtonState.Replay)
+        {
+            ButtonChangedToPlay();
+            GameManager.Instance.StopFacrotyAndReset();
         }
     }
 
@@ -54,6 +60,11 @@ public class UIManager : MonoBehaviour
     public void ButtonChangedToPlay()
     {
         image.sprite = playButtonSprite;
+    }
+
+    public void ButtonChangedToReplay()
+    {
+        image.sprite = replayButtonSprite;
     }
 
     public void UpdateStatusPanelText(string text)

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Bun : FoodComponent
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private new void OnCollisionEnter2D(Collision2D collision)
     {
+        base.OnCollisionEnter2D(collision);
+
         var foodComponent = collision.gameObject.GetComponent<FoodComponent>();
 
         if (foodComponent != null &&

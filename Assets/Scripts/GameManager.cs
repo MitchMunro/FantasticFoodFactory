@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     //This is used to check if the play button has been clicked, and therefore if the factory is playing or not
     public bool isFactoryPlaying { get; private set; }
+    public ButtonState playPauseButtonImage { get; private set; } = ButtonState.Play;
 
     public GameObject FoodSpawnedParent;
 
@@ -111,7 +112,8 @@ public class GameManager : MonoBehaviour
 
     private void FinalScoring()
     {
-        uIManager.ButtonChangedToPlay();
+        playPauseButtonImage = ButtonState.Replay;
+        uIManager.ButtonChangedToReplay();
 
         if (moneyScore >= levelGoal.moneyGoal)
         {
@@ -135,6 +137,8 @@ public class GameManager : MonoBehaviour
 
     public void PlayFactory()
     {
+        playPauseButtonImage = ButtonState.Pause;
+
         finalScoreWorkDone = false;
 
         foreach (Transform childTransform in FoodSpawnedParent.transform)
@@ -153,6 +157,8 @@ public class GameManager : MonoBehaviour
 
     public void StopFactory()
     {
+        playPauseButtonImage = ButtonState.Play;
+
         isFactoryPlaying = false;
 
         if (GoalPipe1 != null) GoalPipe1.CloseLid();
@@ -179,4 +185,11 @@ public class GameManager : MonoBehaviour
         return speedSlider.value;
     }
 
+}
+
+public enum ButtonState
+{
+    Play,
+    Pause,
+    Replay
 }

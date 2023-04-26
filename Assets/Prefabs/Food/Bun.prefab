@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodType: 0
+  fadeTime: 3
 --- !u!60 &5649999932321951911
 PolygonCollider2D:
   m_ObjectHideFlags: 0
