@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
+#if !UNITY_WEBGL
 namespace Tarodev {
     /// <summary>
     /// Unity has probably discussed an auto-save feature countless times over the years
@@ -88,3 +89,4 @@ namespace Tarodev {
         }
     }
 }
+#endif

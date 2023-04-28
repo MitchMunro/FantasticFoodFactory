@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bun : FoodComponent
+public class Bun : Food
 {
     private new void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
 
-        var foodComponent = collision.gameObject.GetComponent<FoodComponent>();
+        var foodComponent = collision.gameObject.GetComponent<Food>();
 
         if (foodComponent != null &&
             foodComponent.foodType == FoodType.Steak)

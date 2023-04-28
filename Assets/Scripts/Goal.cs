@@ -7,9 +7,8 @@ public class Goal : MonoBehaviour
 {
     public GameObject targetObject;
     private GameObject _previousTargetObject;
-    private FoodComponent foodCompTargetObject;
+    private Food foodCompTargetObject;
     private GameObject foodIcon;
-    private int scoreAmount = 5;
 
     public GameObject lid;
 
@@ -21,7 +20,7 @@ public class Goal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foodCompTargetObject = targetObject.GetComponent<FoodComponent>();
+        foodCompTargetObject = targetObject.GetComponent<Food>();
         _previousTargetObject = targetObject;
     }
 
@@ -64,13 +63,13 @@ public class Goal : MonoBehaviour
 
     private void ScoreAndDestroyObject(GameObject scoredObject)
     {
-        var foodCompScoredObject = scoredObject.GetComponent<FoodComponent>();
+        var food = scoredObject.GetComponent<Food>();
 
 
-        if (foodCompScoredObject != null &&
-            foodCompScoredObject.foodType == foodCompTargetObject.foodType)
+        if (food != null &&
+            food.foodType == foodCompTargetObject.foodType)
         {
-            GameManager.Instance.Score(scoreAmount);
+            GameManager.Instance.UpdateScore(food.scoreValue);
         }
         else
         {
@@ -93,15 +92,15 @@ public class Goal : MonoBehaviour
         return null;
     }
 
-    public void OpenLid()
-    {
-        lid.SetActive(false);
-    }
+    //public void OpenLid()
+    //{
+    //    lid.SetActive(false);
+    //}
 
-    public void CloseLid()
-    {
-        lid.SetActive(true);
+    //public void CloseLid()
+    //{
+    //    lid.SetActive(true);
 
-    }
+    //}
 
 }

@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4379217324626234098
 SpriteRenderer:
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 97ad5e9644d2349539f2fe5e3d67c4e5, type: 2}
+  m_Material: {fileID: 6200000, guid: d9cf6cb260be84a729de74a11dad2011, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -171,3 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622765de825054039a03c589bdba4aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sellPrice: 10

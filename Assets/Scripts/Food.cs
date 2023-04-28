@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoodComponent : MonoBehaviour
+public class Food : MonoBehaviour
 {
     public FoodType foodType;
 
@@ -12,6 +12,7 @@ public class FoodComponent : MonoBehaviour
     private float timeSinceTouchingFloor = 0.0f; // time since the object started touching the floor
     private SpriteRenderer objectRenderer;
     private Color originalColor; // the object's original color
+    public int scoreValue = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,7 @@ public class FoodComponent : MonoBehaviour
         // if the alpha value is less than or equal to 0, destroy the object
         if (alpha <= 0.0f)
         {
-            Destroy(gameObject);
+            DestroyFood();
         }
     }
 
@@ -65,6 +66,14 @@ public class FoodComponent : MonoBehaviour
         Color color = objectRenderer.color;
         color.a = alpha;
         objectRenderer.color = color;
+    }
+
+    private void DestroyFood()
+    {
+        // Loose points equal to the score value when food is destroyed.
+        GameManager.Instance.UpdateScore(-scoreValue);
+   
+        Destroy(this.gameObject);
     }
 
 

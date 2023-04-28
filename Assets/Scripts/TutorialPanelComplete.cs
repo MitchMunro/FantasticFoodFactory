@@ -11,6 +11,7 @@ public class TutorialPanelComplete : MonoBehaviour
 
     private Button buttonContinue;
     private Button buttonReplay;
+    public string nextSceneName;
 
     private void Start()
     {
@@ -59,7 +60,7 @@ public class TutorialPanelComplete : MonoBehaviour
         Debug.Log("Continue!");
 
         // Reload the current scene
-        SceneManager.LoadScene("Tutorial Level 2");
+        SceneManager.LoadScene(nextSceneName);
 
     }
 

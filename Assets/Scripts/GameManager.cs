@@ -13,13 +13,13 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI moneyText;
     private TextMeshProUGUI moneyGoalText;
     private TextMeshProUGUI timeText;
-    private TextMeshProUGUI timeGoalText;
 
     public GameObject speedSliderGameObj;
     private Slider speedSlider;
 
     public float timerCount { get; private set; }
-    public int moneyScore { get; private set; }
+    public int money; //{ get; private set; }
+    private int moneyScoreAtRoundStart;
 
     public LevelGoal levelGoal;
 
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public ButtonState playPauseButtonImage { get; private set; } = ButtonState.Play;
 
     public GameObject FoodSpawnedParent;
+    public GameObject ObjectsBoughtParent;
 
     public GameObject GoalPipe1GameObj;
     public GameObject GoalPipe2GameObj;
@@ -54,17 +55,15 @@ public class GameManager : MonoBehaviour
         }
 
         // Get all the text components attached to the canvas so they can be updated later.
-        var canvas = transform.Find("Canvas").transform.Find("ScoringPanel");
+        var canvas = GameObject.Find("Canvas").transform.Find("ScoringPanel");
 
         var moneyTextGameObj = canvas.Find("MoneyText").gameObject;
         var moneyGoalTextGameObj = canvas.Find("MoneyGoalText").gameObject;
         var timeTextGameObj = canvas.Find("TimeText").gameObject;
-        var timeGoalTextGameObj = canvas.Find("TimeGoalText").gameObject;
 
         moneyText = moneyTextGameObj.GetComponent<TextMeshProUGUI>();
         moneyGoalText = moneyGoalTextGameObj.GetComponent<TextMeshProUGUI>();
         timeText = timeTextGameObj.GetComponent<TextMeshProUGUI>();
-        timeGoalText = timeGoalTextGameObj.GetComponent<TextMeshProUGUI>();
 
         FoodSpawnedParent = transform.Find("FoodSpawned").gameObject;
 
@@ -74,16 +73,14 @@ public class GameManager : MonoBehaviour
 
         speedSlider = speedSliderGameObj.GetComponent<Slider>();
 
-
-
     }
 
     private void Start()
     {
         moneyGoalText.text = $"Goal: $ {levelGoal.moneyGoal}";
-        moneyText.text = "Earned: $ ";
-        timeGoalText.text = $"Time Goal: {levelGoal.timeLimit}.00";
+        moneyText.text = "Money: $ ";
         timeText.text = $"Time: ";
+        UpdateScore(levelGoal.startingMoney);
 
     }
 
@@ -97,7 +94,7 @@ public class GameManager : MonoBehaviour
     {
         if (isFactoryPlaying) timerCount += Time.deltaTime;
 
-        timeText.text = $"Time: " + timerCount.ToString("F2");
+        timeText.text = $"Time: {timerCount.ToString("F2")} / {levelGoal.timeLimit}.00";
 
 
         if (!finalScoreWorkDone &&
@@ -115,7 +112,7 @@ public class GameManager : MonoBehaviour
         playPauseButtonImage = ButtonState.Replay;
         uIManager.ButtonChangedToReplay();
 
-        if (moneyScore >= levelGoal.moneyGoal)
+        if (money >= levelGoal.moneyGoal)
         {
             uIManager.UpdateStatusPanelText("Success!");
             uIManager.statusPanel.SetActive(true);
@@ -128,16 +125,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Score(int scoreToAdd)
+    public void UpdateScore(int scoreToAdd = 0)
     {
-        moneyScore += scoreToAdd;
+        money += scoreToAdd;
 
-        moneyText.text = $"Score: {moneyScore}";
+        moneyText.text = $"Money: ${money}";
     }
 
     public void PlayFactory()
     {
         playPauseButtonImage = ButtonState.Pause;
+
+        //// Saves money score at round start so that it can be reset to this value later.
+        //moneyScoreAtRoundStart = moneyScore;
 
         finalScoreWorkDone = false;
 
@@ -149,9 +149,9 @@ public class GameManager : MonoBehaviour
         isFactoryPlaying = true;
         timerCount = 0f;
 
-        if (GoalPipe1 != null) GoalPipe1.OpenLid();
-        if (GoalPipe2 != null) GoalPipe2.OpenLid();
-        if (GoalPipe3 != null) GoalPipe3.OpenLid();
+        //if (GoalPipe1 != null) GoalPipe1.OpenLid();
+        //if (GoalPipe2 != null) GoalPipe2.OpenLid();
+        //if (GoalPipe3 != null) GoalPipe3.OpenLid();
 
     }
 
@@ -161,9 +161,9 @@ public class GameManager : MonoBehaviour
 
         isFactoryPlaying = false;
 
-        if (GoalPipe1 != null) GoalPipe1.CloseLid();
-        if (GoalPipe2 != null) GoalPipe2.CloseLid();
-        if (GoalPipe3 != null) GoalPipe3.CloseLid();
+        //if (GoalPipe1 != null) GoalPipe1.CloseLid();
+        //if (GoalPipe2 != null) GoalPipe2.CloseLid();
+        //if (GoalPipe3 != null) GoalPipe3.CloseLid();
 
     }
 
@@ -171,6 +171,7 @@ public class GameManager : MonoBehaviour
     {
         StopFactory();
 
+        ResetScore();
 
         foreach (Transform childTransform in FoodSpawnedParent.transform)
         {
@@ -178,6 +179,22 @@ public class GameManager : MonoBehaviour
         }
 
         uIManager.statusPanel.SetActive(false);
+
+    }
+
+    private void ResetScore()
+    {
+        int moneySpent = 0;
+
+        foreach(Transform transform in ObjectsBoughtParent.transform)
+        {
+            var component = transform.gameObject.GetComponent<ClickAndDrag>();
+            moneySpent += component.sellPrice;
+        }
+
+        money = levelGoal.startingMoney - moneySpent;
+
+        UpdateScore();
     }
 
     public float SpeedSliderMultiplier()

@@ -7,6 +7,7 @@ using System;
 public class LevelGoal
 {
     public int moneyGoal;
+    public int startingMoney;
     public int timeLimit;
 
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2439346246103448920}
   - component: {fileID: 2439346246103448923}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2439346246140224985}
   - component: {fileID: 2439346246140224990}
   - component: {fileID: 2439346246140224984}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ConveyerBelt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622765de825054039a03c589bdba4aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sellPrice: 20
 --- !u!1 &2439346246419689999
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2439346246419689998}
   - component: {fileID: 2439346246419689993}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2439346246824716187}
   - component: {fileID: 2439346246824716186}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2439346247732486667}
   - component: {fileID: 2439346247732486666}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
