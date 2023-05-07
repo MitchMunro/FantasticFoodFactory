@@ -4,8 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - ScoringObject
   - Border
+=======
+  - MovableObject
+  - Floor
+  - Undefined
+>>>>>>> 0ca851f7ffab968933884cb0d9c192b76507189e
   layers:
   - Default
   - TransparentFX
@@ -13,8 +19,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - CollisionOnly
+  - Draggable
   - 
   - 
   - 

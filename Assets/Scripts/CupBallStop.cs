@@ -8,7 +8,6 @@ public class CupBallStop : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision);
 
         if (collision.collider.tag == "ScoringObject")
         {

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2439346246103448920}
   - component: {fileID: 2439346246103448923}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2439346246140224985}
   - component: {fileID: 2439346246140224990}
   - component: {fileID: 2439346246140224984}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ConveyerBelt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ Transform:
   - {fileID: 2439346246103448920}
   - {fileID: 2439346247732486667}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2439346246140224989
 SpriteRenderer:
@@ -164,7 +164,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.745283, g: 0.5304436, b: 0.18632075, a: 1}
   m_FlipX: 0
@@ -199,7 +199,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2439346246140224978}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: a7e0c1568d59847aa8a7a0c5147989a5, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -251,7 +251,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 191fb4b1957c84c4db58f2d270b4c95d, type: 2}
+  m_Material: {fileID: 6200000, guid: 97ad5e9644d2349539f2fe5e3d67c4e5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622765de825054039a03c589bdba4aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sellPrice: 20
 --- !u!1 &2439346246419689999
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2439346246419689998}
   - component: {fileID: 2439346246419689993}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +347,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -368,7 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2439346246824716187}
   - component: {fileID: 2439346246824716186}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +431,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -452,7 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2439346247732486667}
   - component: {fileID: 2439346247732486666}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +515,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

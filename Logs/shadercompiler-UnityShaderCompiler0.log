@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Base path: '/Applications/Unity/Unity.app/Contents', plugins path '/Applications/Unity/Unity.app/Contents/PlaybackEngines'
+=======
+Base path: '/Applications/Unity/Hub/Editor/2022.2.1f1/Unity.app/Contents', plugins path '/Applications/Unity/Hub/Editor/2022.2.1f1/PlaybackEngines'
+>>>>>>> 0ca851f7ffab968933884cb0d9c192b76507189e
 Cmd: initializeCompiler
 
 
