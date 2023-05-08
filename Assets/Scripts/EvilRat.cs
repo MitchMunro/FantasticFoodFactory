@@ -9,33 +9,40 @@ public class EvilRat : MonoBehaviour
     public float lifeTime = 15f;
     [SerializeField] private Rigidbody2D rb;
     private bool isMovingOnXAxis; 
-    private Vector2 movementDirection; 
+    private Vector2 movementDirection;
+    private bool isFactoryPlaying;
+
 
     void Start()
     {
-        transform.position = new Vector2(Random.Range(-7f, 7f), Random.Range(-4f, 4f));
+            transform.position = new Vector2(Random.Range(-5f, 2f), Random.Range(-4f, 4f));
 
-        isMovingOnXAxis = Random.Range(0, 2) == 0;
-        movementDirection = isMovingOnXAxis ? Vector2.right : Vector2.up;
+            isMovingOnXAxis = Random.Range(0, 2) == 0;
+            movementDirection = isMovingOnXAxis ? Vector2.right : Vector2.up;
 
-        Destroy(gameObject, lifeTime);
+            Destroy(gameObject, lifeTime);
     }
+
+
 
     void Update()
     {
-        transform.Translate(movementDirection * moveSpeed * Time.deltaTime);
-
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.2f);
-        foreach (Collider2D collider in colliders)
+        if (GameManager.Instance.isFactoryPlaying)
         {
-            if (collider.tag == "ScoringObject")
+            transform.Translate(movementDirection * moveSpeed * Time.deltaTime);
+
+
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.2f);
+            foreach (Collider2D collider in colliders)
             {
-                Destroy(collider.gameObject);
-            }
-            if (collider.tag == "Border")
-            {
-                movementDirection *= -1;
+                if (collider.tag == "MovableObject")
+                {
+                    Destroy(collider.gameObject);
+                }
+                if (collider.tag == "Border")
+                {
+                    movementDirection *= -1;
+                }
             }
         }
     }
