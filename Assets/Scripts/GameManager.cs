@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     private bool finalScoreWorkDone = false;
 
     public GameObject burger;
+    public GameObject sandwich;
 
     public GameObject TutorialUI;
 

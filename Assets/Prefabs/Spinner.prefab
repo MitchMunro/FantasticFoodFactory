@@ -15,7 +15,11 @@ GameObject:
   - component: {fileID: 1376998109}
   m_Layer: 7
   m_Name: Spinner
+<<<<<<< HEAD
+  m_TagString: Border
+=======
   m_TagString: DraggableObject
+>>>>>>> bf20f28f4cf5d10531eacdb3a543b5fdfb113775
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
