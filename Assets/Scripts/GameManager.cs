@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
 
 public class GameManager : MonoBehaviour
 {
@@ -42,6 +43,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject burger;
 
+    public GameObject TutorialUI;
+
+    private GameObject selectedObject;
+    private float rotateSpeed = 100f;
+
+    public PostProcessVolume selectedObjectVolume;
 
     private void Awake()
     {
@@ -81,12 +88,88 @@ public class GameManager : MonoBehaviour
         moneyText.text = "Money: $ ";
         timeText.text = $"Time: ";
         UpdateScore(levelGoal.startingMoney);
+        TutorialUI.SetActive(true);
 
     }
 
     void Update()
     {
         Timer();
+        SelectAndMoveItems();
+
+
+    }
+
+    private void SelectAndMoveItems()
+    {
+        if (GameManager.Instance.isFactoryPlaying) return;
+
+        if (Input.GetMouseButtonDown(0)) // Left mouse button clicked
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+            if (hit.collider != null && hit.collider.CompareTag("DraggableObject"))
+            {
+                // Store the selected object
+                selectedObject = hit.collider.gameObject;
+                Debug.Log(selectedObject.name);
+
+                //New outline script
+
+                // Deselect any previously selected object
+                if (selectedObject != null)
+                {
+                    selectedObjectVolume.enabled = false;
+                }
+
+                // Store the selected object
+                selectedObject = hit.collider.gameObject;
+                selectedObjectVolume = selectedObject.GetComponent<PostProcessVolume>();
+                selectedObjectVolume.enabled = true;
+                Debug.Log(selectedObject.name);
+
+            }
+            else
+            {
+                // Deselect the object if something else is clicked
+                
+                if (selectedObject != null)
+                {
+                    selectedObjectVolume.enabled = false;
+                }
+
+                selectedObject = null;
+                Debug.Log("No object selected.");
+
+            }
+        }
+
+        //Everything below this is only called if there is a selected object.
+        if (selectedObject == null) return;
+
+        // If an object is selected, drag it with the mouse
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            selectedObject.transform.position = new Vector3(mousePosition.x, mousePosition.y, selectedObject.transform.position.z);
+        }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            selectedObject.transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            selectedObject.transform.Rotate(-Vector3.forward * rotateSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            var comp = selectedObject.GetComponent<ProductionLineObject>();
+
+            comp.SellObject();
+        }
 
     }
 
@@ -188,7 +271,7 @@ public class GameManager : MonoBehaviour
 
         foreach(Transform transform in ObjectsBoughtParent.transform)
         {
-            var component = transform.gameObject.GetComponent<ClickAndDrag>();
+            var component = transform.gameObject.GetComponent<ProductionLineObject>();
             moneySpent += component.sellPrice;
         }
 

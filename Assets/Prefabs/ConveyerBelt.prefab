@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 2439346246140224985}
   - component: {fileID: 2439346246140224990}
   - component: {fileID: 2439346246140224984}
+  - component: {fileID: 6439900014416218059}
   m_Layer: 7
   m_Name: ConveyerBelt
-  m_TagString: Untagged
+  m_TagString: DraggableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +123,7 @@ Transform:
   - {fileID: 2439346246103448920}
   - {fileID: 2439346247732486667}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2439346246140224989
 SpriteRenderer:
@@ -269,12 +270,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2439346246140224978}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 622765de825054039a03c589bdba4aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sellPrice: 20
+--- !u!114 &6439900014416218059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2439346246140224978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 0}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &2439346246419689999
 GameObject:
   m_ObjectHideFlags: 0
