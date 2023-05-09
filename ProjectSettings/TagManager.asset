@@ -6,9 +6,13 @@ TagManager:
   tags:
   - MovableObject
   - Undefined
+<<<<<<< HEAD
   - Border
   - Floor
   - ScoringObject
+=======
+  - DraggableObject
+>>>>>>> bf20f28f4cf5d10531eacdb3a543b5fdfb113775
   layers:
   - Default
   - TransparentFX
@@ -16,9 +20,15 @@ TagManager:
   - rat
   - Water
   - UI
+<<<<<<< HEAD
   - 
   - 
   - 
+=======
+  - CollisionOnly
+  - Draggable
+  - Outline
+>>>>>>> bf20f28f4cf5d10531eacdb3a543b5fdfb113775
   - 
   - 
   - 

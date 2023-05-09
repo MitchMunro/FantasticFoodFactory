@@ -14,7 +14,7 @@ public class DeleteOnDrop : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit && hit.transform.gameObject.GetComponent<ClickAndDrag>() != null)
+            if (hit && hit.transform.gameObject.GetComponent<ProductionLineObject>() != null)
             {
                 objectBeingDragged = hit.transform.gameObject;
             }
