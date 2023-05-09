@@ -3,32 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - MovableObject
-  - Undefined
-<<<<<<< HEAD
-  - Border
-  - Floor
-  - ScoringObject
-=======
-  - DraggableObject
->>>>>>> bf20f28f4cf5d10531eacdb3a543b5fdfb113775
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - rat
+  - 
   - Water
   - UI
-<<<<<<< HEAD
   - 
   - 
   - 
-=======
-  - CollisionOnly
-  - Draggable
-  - Outline
->>>>>>> bf20f28f4cf5d10531eacdb3a543b5fdfb113775
   - 
   - 
   - 
@@ -55,7 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Rat
-    uniqueID: 1134661119
     locked: 0
