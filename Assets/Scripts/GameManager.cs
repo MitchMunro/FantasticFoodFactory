@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     private bool finalScoreWorkDone = false;
 
     public GameObject[] FoodList;
+    public GameObject sandwich;
+
 
     private GameObject selectedObject;
     private float rotateSpeed = 100f;
