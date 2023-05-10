@@ -37,7 +37,7 @@ Transform:
   - {fileID: 561428607207155980}
   - {fileID: 561428605898433628}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &561428605225850758
 MonoBehaviour:
@@ -697,6 +697,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 891659465, guid: 1ea9a90c6771d434b96ac80dd2836dfc, type: 3}
     - {fileID: 5019452543823243268, guid: 1ea9a90c6771d434b96ac80dd2836dfc, type: 3}
+    - {fileID: 1376998109, guid: 1ea9a90c6771d434b96ac80dd2836dfc, type: 3}
+    - {fileID: 891659467, guid: 1ea9a90c6771d434b96ac80dd2836dfc, type: 3}
+    - {fileID: 891659466, guid: 1ea9a90c6771d434b96ac80dd2836dfc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

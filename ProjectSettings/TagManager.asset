@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - Undefined
   - DraggableObject
+  - IgnoreHighlight
   layers:
   - Default
   - TransparentFX

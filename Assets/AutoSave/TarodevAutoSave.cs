@@ -1,4 +1,4 @@
-#if !UNITY_WEBGL
+//#if !UNITY_WEBGL
 using System;
 using System.Linq;
 using System.Threading;
@@ -90,4 +90,4 @@ namespace Tarodev {
         }
     }
 }
-#endif
+//#endif

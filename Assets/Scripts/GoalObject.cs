@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class Goal : MonoBehaviour
+public class GoalObject : MonoBehaviour
 {
     public GameObject targetObject;
     private GameObject _previousTargetObject;
@@ -26,7 +26,8 @@ public class Goal : MonoBehaviour
 
     private void Update()
     {
-        if (Application.isEditor)
+        if (Application.isEditor &&
+            !Application.isPlaying)
             UpdateFoodIcon();
     }
 
