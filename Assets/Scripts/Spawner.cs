@@ -13,6 +13,8 @@ public class Spawner : MonoBehaviour
     private GameObject foodIcon;
     public SpriteRenderer colorChangingSprite;
 
+    public bool isMainMenuSpawner = false;
+
 
     private void Awake()
     {
@@ -24,9 +26,18 @@ public class Spawner : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            StartCoroutine(SpawnFood());
+            if (isMainMenuSpawner)
+            {
+                StartCoroutine(SpawnFoodTutorial());
+            }
+            else
+            {
+                StartCoroutine(SpawnFood());
+            }
+
+            
             // Set the sprite color to red when the game starts
-            colorChangingSprite.color = Color.red;
+            if (colorChangingSprite != null) colorChangingSprite.color = Color.red;
         }
     }
 
@@ -40,6 +51,8 @@ public class Spawner : MonoBehaviour
         }
         else    //Execute this if in play mode
         {
+            if (colorChangingSprite == null) return;
+
             // Toggle the sprite color between red and green when clicked
             if (GameManager.Instance.isFactoryPlaying)
             {
@@ -101,6 +114,17 @@ public class Spawner : MonoBehaviour
             spawnRate / GameManager.Instance.SpeedSliderMultiplier());
         StartCoroutine(SpawnFood());
 
+    }
+
+    public IEnumerator SpawnFoodTutorial()
+    {
+         Instantiate(
+            foodToSpawn,
+            this.gameObject.transform.position,
+            foodToSpawn.transform.rotation,
+            GameManager.Instance.FoodSpawnedParent.transform);
+        yield return new WaitForSeconds(spawnRate);
+        StartCoroutine(SpawnFoodTutorial());
     }
 }
 
