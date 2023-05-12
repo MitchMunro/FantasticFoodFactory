@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5649999932321951905}
   - component: {fileID: 5649999932321951910}
-  - component: {fileID: -2195834668942096890}
-  - component: {fileID: 5649999932321951911}
+  - component: {fileID: 470698300537663856}
   - component: {fileID: 915235686463207913}
+  - component: {fileID: 5649999932321951911}
   m_Layer: 0
-  m_Name: Bun_tutorial
+  m_Name: Salmon
   m_TagString: MovableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5649999932321951908}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.3141581, w: 0.94937074}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 36.62}
 --- !u!212 &5649999932321951910
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 391980c5f88bb46cb867f2843361ea6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 892397ea945f34ee3873129d8bf7fb54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2195834668942096890
+--- !u!114 &470698300537663856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,12 +96,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 5649999932321951908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01df7fb4109d84033b7c192054fa944a, type: 3}
+  m_Script: {fileID: 11500000, guid: 194c596089597498482cff6bfc590643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: 0
+  foodType: 6
   fadeTime: 3
-  scoreValue: 40
+  scoreValue: 5
+--- !u!50 &915235686463207913
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649999932321951908}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1.2
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: 191fb4b1957c84c4db58f2d270b4c95d, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!60 &5649999932321951911
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -146,39 +173,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.18976426, y: 0.29314303}
-      - {x: -0.3584547, y: 0.124253035}
-      - {x: -0.3516779, y: -0.010385513}
+    - - {x: -0.35042968, y: -0.067052916}
       - {x: -0.010375261, y: -0.31876993}
-      - {x: 0.24815893, y: -0.32439303}
-      - {x: 0.3784585, y: -0.22285557}
-      - {x: 0.38408136, y: -0.101537466}
-      - {x: 0.0016174316, y: 0.29595447}
+      - {x: 0.21406804, y: -0.22334136}
+      - {x: 0.35115147, y: 0.021117434}
+      - {x: 0.22448462, y: 0.15127438}
+      - {x: -0.059516482, y: 0.26075646}
   m_UseDelaunayMesh: 0
---- !u!50 &915235686463207913
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649999932321951908}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 191fb4b1957c84c4db58f2d270b4c95d, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0

@@ -8,6 +8,7 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public bool isMainMenu = false;
     public UIManager uIManager;
 
     public float sliderMin = 0.5f;
