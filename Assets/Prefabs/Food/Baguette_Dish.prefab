@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5649999932321951905}
-  - component: {fileID: -2195834668942096890}
   - component: {fileID: 5649999932321951910}
   - component: {fileID: 915235686463207913}
   - component: {fileID: 5649999932321951911}
+  - component: {fileID: 4963913355682117990}
   m_Layer: 0
   m_Name: Baguette_Dish
   m_TagString: MovableObject
@@ -35,21 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 42.19}
---- !u!114 &-2195834668942096890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649999932321951908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01df7fb4109d84033b7c192054fa944a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodType: 0
-  fadeTime: 3
-  scoreValue: 5
 --- !u!212 &5649999932321951910
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -196,3 +181,18 @@ PolygonCollider2D:
       - {x: 0.40787998, y: 0.21173535}
       - {x: 0.29895756, y: 0.36452162}
   m_UseDelaunayMesh: 0
+--- !u!114 &4963913355682117990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649999932321951908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff222739328f1428592c8ce1cdbac8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodType: 9
+  fadeTime: 3
+  scoreValue: 5
