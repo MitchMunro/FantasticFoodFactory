@@ -13,6 +13,10 @@ public class UIManager : MonoBehaviour
     public Sprite pauseButtonSprite;
     public Sprite replayButtonSprite;
 
+    public GameObject moneyTextGameObj;
+    public GameObject moneyGoalTextGameObj;
+    public GameObject timeTextGameObj;
+
     private TextMeshProUGUI moneyText;
     private TextMeshProUGUI moneyGoalText;
     private TextMeshProUGUI timeText;
@@ -29,6 +33,7 @@ public class UIManager : MonoBehaviour
     private Slider speedSlider;
 
     private void Awake()
+
     {
         speedSlider = speedSliderGameObj.GetComponent<Slider>();
         playPauseButton = playPauseButtonGameObj.GetComponent<Button>();
@@ -37,18 +42,16 @@ public class UIManager : MonoBehaviour
 
         var canvas = GameObject.Find("Canvas").transform.Find("ScoringPanel");
 
-        var moneyTextGameObj = canvas.Find("MoneyText").gameObject;
-        var moneyGoalTextGameObj = canvas.Find("MoneyGoalText").gameObject;
-        var timeTextGameObj = canvas.Find("TimeText").gameObject;
-
         moneyText = moneyTextGameObj.GetComponent<TextMeshProUGUI>();
         moneyGoalText = moneyGoalTextGameObj.GetComponent<TextMeshProUGUI>();
         timeText = timeTextGameObj.GetComponent<TextMeshProUGUI>();
     }
 
     private void Start()
+
     {
-        if (TutorialUI != null) TutorialUI.SetActive(true);
+        if (TutorialUI != null &&
+            !GameManager.Instance.isMainMenu) TutorialUI.SetActive(true);
     }
 
 

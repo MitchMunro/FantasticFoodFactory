@@ -10,8 +10,6 @@ public class GoalObject : MonoBehaviour
     private Food foodCompTargetObject;
     private GameObject foodIcon;
 
-    public GameObject lid;
-
     private void Awake()
     {
         foodIcon = FindObjectInChildren("FoodIcon");
@@ -92,16 +90,5 @@ public class GoalObject : MonoBehaviour
         }
         return null;
     }
-
-    //public void OpenLid()
-    //{
-    //    lid.SetActive(false);
-    //}
-
-    //public void CloseLid()
-    //{
-    //    lid.SetActive(true);
-
-    //}
 
 }
