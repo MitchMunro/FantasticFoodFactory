@@ -1959,6 +1959,7 @@ GameObject:
   - component: {fileID: 717135321}
   - component: {fileID: 717135320}
   - component: {fileID: 717135319}
+  - component: {fileID: 717135322}
   m_Layer: 0
   m_Name: 8.NoBuild
   m_TagString: Untagged
@@ -7073,7 +7074,7 @@ CompositeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -33360,6 +33361,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &717135322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717135315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8409c7458b61e4ae0aef03ea92f86c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &794852616
 GameObject:
   m_ObjectHideFlags: 0
@@ -78071,6 +78084,7 @@ MonoBehaviour:
   playButtonSprite: {fileID: 21300000, guid: b0720d16fea9246729da615c2cd59b0f, type: 3}
   pauseButtonSprite: {fileID: 21300000, guid: d6511bb0e435641be804621d72989403, type: 3}
   replayButtonSprite: {fileID: 21300000, guid: 80f4314a770674921b0385cd1df06c0c, type: 3}
+  crossButtonSprite: {fileID: 21300000, guid: 7ab15cf624a994c5b96d5e4a6343be90, type: 3}
   moneyTextGameObj: {fileID: 2460328776661127744}
   moneyGoalTextGameObj: {fileID: 2460328777450606730}
   timeTextGameObj: {fileID: 2460328777096927672}
