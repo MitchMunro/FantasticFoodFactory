@@ -141,9 +141,5 @@ public enum FoodType
     Icecream,
     LemonPie,
     Waffles,
-    Salmon,
-    Jelly,
-    Meatball,
-    Spaghetti,
-    SpaghettiAndMeatballs
+    Salmon
 }

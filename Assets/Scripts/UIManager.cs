@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     private Slider speedSlider;
 
     private void Awake()
+
     {
         speedSlider = speedSliderGameObj.GetComponent<Slider>();
         playPauseButton = playPauseButtonGameObj.GetComponent<Button>();
@@ -48,6 +49,7 @@ public class UIManager : MonoBehaviour
     }
 
     private void Start()
+
     {
         if (TutorialUI != null &&
             !GameManager.Instance.isMainMenu) TutorialUI.SetActive(true);
@@ -75,17 +77,17 @@ public class UIManager : MonoBehaviour
         statusPanel.SetActive(false);
 
 
-        if (GameManager.Instance.playPauseButtonImage == ButtonState.Pause)
+        if (GameManager.Instance.buttonState == ButtonState.Pause)
         {
             ButtonChangedToPlay();
             GameManager.Instance.StopFacrotyAndReset();
         }
-        else if (GameManager.Instance.playPauseButtonImage == ButtonState.Play)
+        else if (GameManager.Instance.buttonState == ButtonState.Play)
         {
             ButtonChangedToPause();
             GameManager.Instance.PlayFactory();
         }
-        else if(GameManager.Instance.playPauseButtonImage == ButtonState.Replay)
+        else if(GameManager.Instance.buttonState == ButtonState.Replay)
         {
             ButtonChangedToPlay();
             GameManager.Instance.StopFacrotyAndReset();
@@ -105,6 +107,11 @@ public class UIManager : MonoBehaviour
     public void ButtonChangedToReplay()
     {
         image.sprite = replayButtonSprite;
+    }
+
+    public void ButtonChangedToCross()
+    {
+        image.sprite = crossButtonSprite;
     }
 
     public void UpdateStatusPanelText(string text)
