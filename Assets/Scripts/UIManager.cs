@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     private Slider speedSlider;
 
     private void Awake()
+
     {
         speedSlider = speedSliderGameObj.GetComponent<Slider>();
         playPauseButton = playPauseButtonGameObj.GetComponent<Button>();
@@ -48,6 +49,7 @@ public class UIManager : MonoBehaviour
     }
 
     private void Start()
+
     {
         if (TutorialUI != null &&
             !GameManager.Instance.isMainMenu) TutorialUI.SetActive(true);
