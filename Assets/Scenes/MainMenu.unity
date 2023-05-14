@@ -19880,6 +19880,7 @@ MonoBehaviour:
   playButtonSprite: {fileID: 21300000, guid: b0720d16fea9246729da615c2cd59b0f, type: 3}
   pauseButtonSprite: {fileID: 21300000, guid: d6511bb0e435641be804621d72989403, type: 3}
   replayButtonSprite: {fileID: 21300000, guid: 80f4314a770674921b0385cd1df06c0c, type: 3}
+  crossButtonSprite: {fileID: 0}
   moneyTextGameObj: {fileID: 971112997}
   moneyGoalTextGameObj: {fileID: 431018640}
   timeTextGameObj: {fileID: 756522279}

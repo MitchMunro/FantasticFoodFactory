@@ -4996,6 +4996,7 @@ GameObject:
   - component: {fileID: 1983068174}
   - component: {fileID: 1983068173}
   - component: {fileID: 1983068172}
+  - component: {fileID: 1983068175}
   m_Layer: 0
   m_Name: GameEngine
   m_TagString: Untagged
@@ -5015,14 +5016,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71d6499d51574cf89a8b099940b655b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playPauseButtonGameObject: {fileID: 52519208}
+  playPauseButtonGameObj: {fileID: 0}
   playButtonSprite: {fileID: 21300000, guid: b0720d16fea9246729da615c2cd59b0f, type: 3}
   pauseButtonSprite: {fileID: 21300000, guid: d6511bb0e435641be804621d72989403, type: 3}
   replayButtonSprite: {fileID: 21300000, guid: 80f4314a770674921b0385cd1df06c0c, type: 3}
+  crossButtonSprite: {fileID: 0}
+  moneyTextGameObj: {fileID: 0}
+  moneyGoalTextGameObj: {fileID: 0}
+  timeTextGameObj: {fileID: 0}
   statusPanel: {fileID: 1843757122}
+  TutorialUI: {fileID: 0}
   tutorialMainPanelParent: {fileID: 0}
-  tutorialCompletePanelObject: {fileID: 0}
-  game: {fileID: 0}
+  tutorialCompletePanelObj: {fileID: 0}
+  speedSliderGameObj: {fileID: 0}
 --- !u!114 &1983068173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5035,8 +5041,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862326c9acb624b54aac54f4f118fbed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMainMenu: 0
   uIManager: {fileID: 1983068172}
-  speedSliderGameObj: {fileID: 516394516}
+  sliderMin: 0.5
+  sliderMax: 4
   money: 0
   levelGoal:
     moneyGoal: 700
@@ -5044,13 +5052,8 @@ MonoBehaviour:
     timeLimit: 20
   FoodSpawnedParent: {fileID: 1618921536}
   ObjectsBoughtParent: {fileID: 1751043138}
-  GoalPipe1GameObj: {fileID: 0}
-  GoalPipe2GameObj: {fileID: 0}
-  GoalPipe3GameObj: {fileID: 0}
-  burger: {fileID: 5202533426543674452, guid: 82d55d35dd79c4ecda6dde49c721da58, type: 3}
+  FoodList: []
   sandwich: {fileID: 0}
-  TutorialUI: {fileID: 0}
-  selectedObjectVolume: {fileID: 0}
 --- !u!4 &1983068174
 Transform:
   m_ObjectHideFlags: 0
@@ -5069,6 +5072,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1983068175
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983068171}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6c188381a8d384044824971d705aa96f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2090297925
 PrefabInstance:
   m_ObjectHideFlags: 0

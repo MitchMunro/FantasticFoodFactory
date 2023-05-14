@@ -11,6 +11,7 @@ public class Bacon : Food_level4
         var foodComponent = collision.gameObject.GetComponent<Food_level4>();
 
         if (foodComponent != null &&
+             foodComponent.foodType_level4 == FoodType_level4.Egg ||
             foodComponent.foodType_level4 == FoodType_level4.Bread)
         {
             Destroy(collision.gameObject);
