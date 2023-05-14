@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Food : MonoBehaviour
 {
     public FoodType foodType;
-
 
     public float fadeTime = 3.0f; // time it takes for the object to fade out
     private bool isTouchingFloor = false;
@@ -98,6 +98,33 @@ public class Food : MonoBehaviour
         {
             // set the touchingFloor flag to false
             isTouchingFloor = false;
+        }
+    }
+
+    protected void CombineFood(Collision2D collision, FoodType foodType, string foodObjName)
+    {
+        var foodComponent = collision.gameObject.GetComponent<Food>();
+
+        if (foodComponent != null &&
+            foodComponent.foodType == foodType)
+        {
+            Destroy(collision.gameObject);
+
+            var newFood = GameManager.Instance.FoodList.Where(obj => obj.name == foodObjName).SingleOrDefault();
+
+            if (newFood != null)
+            {
+                Instantiate(newFood,
+                    collision.gameObject.transform.position,
+                    newFood.transform.rotation,
+                    GameManager.Instance.FoodSpawnedParent.transform
+                    );
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Debug.LogWarning($"Cannot find food: '{foodObjName}' in GameManager's FoodList.");
+            }
         }
     }
 

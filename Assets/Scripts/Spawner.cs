@@ -3,48 +3,103 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class Spawner : MonoBehaviour
 {
-    public GameObject ball;
-    public float spawnRate = 1.6f;
-    public SpriteRenderer sprite;
-    public bool isBlue = false;
+    public GameObject foodToSpawn;
+    private GameObject _previousFoodToSpawn;
+    public float spawnRate = 0.8f;
     private bool isFactoryPlaying;
+    private GameObject foodIcon;
+    public SpriteRenderer colorChangingSprite;
 
+
+    private void Awake()
+    {
+        foodIcon = FindObjectInChildren("FoodIcon");
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(BallSpawn());
-        // Set the sprite color to red when the game starts
-        sprite = GetComponent<SpriteRenderer>();
-        sprite.color = Color.red;
+        if (Application.isPlaying)
+        {
+            StartCoroutine(SpawnFood());
+            // Set the sprite color to red when the game starts
+            colorChangingSprite.color = Color.red;
+        }
     }
 
     private void Update()
     {
-        // Toggle the sprite color between red and green when clicked
-        if (GameManager.Instance.isFactoryPlaying)
+        
+        if (Application.isEditor &&
+            !Application.isPlaying)   //Execute this if in editor
         {
-            if (isBlue) sprite.color = Color.blue;
-            else sprite.color = Color.green;
+            UpdateFoodIcon();
         }
-        else
+        else    //Execute this if in play mode
         {
-            sprite.color = Color.red;
+            // Toggle the sprite color between red and green when clicked
+            if (GameManager.Instance.isFactoryPlaying)
+            {
+                colorChangingSprite.color = Color.green;
+            }
+            else
+            {
+                colorChangingSprite.color = Color.red;
+            }
         }
+            
     }
 
-    public IEnumerator BallSpawn()
+    private void UpdateFoodIcon()
+    {
+        //Stop executing this function if TargetObject is null, or if TargetObject hasn't changed.
+        if (foodToSpawn == null ||
+            foodToSpawn == _previousFoodToSpawn)
+            return;
+
+        _previousFoodToSpawn = foodToSpawn;
+
+        var spriteToRender = foodToSpawn.GetComponent<SpriteRenderer>();
+        var iconRenderer = foodIcon.GetComponent<SpriteRenderer>();
+
+        try
+        {
+            iconRenderer.sprite = spriteToRender.sprite;
+        }
+        catch
+        {
+            Debug.Log("Failed to render sprite from target object.");
+        }
+
+
+    }
+
+    public GameObject FindObjectInChildren(string name)
+    {
+        Transform[] children = gameObject.GetComponentsInChildren<Transform>(true);
+        foreach (Transform child in children)
+        {
+            if (child.name == name)
+            {
+                return child.gameObject;
+            }
+        }
+        return null;
+    }
+
+    public IEnumerator SpawnFood()
     {
         if (GameManager.Instance.isFactoryPlaying) Instantiate(
-            ball,
+            foodToSpawn,
             this.gameObject.transform.position,
-            ball.transform.rotation,
+            foodToSpawn.transform.rotation,
             GameManager.Instance.FoodSpawnedParent.transform);
         yield return new WaitForSeconds(
             spawnRate / GameManager.Instance.SpeedSliderMultiplier());
-        StartCoroutine(BallSpawn());
+        StartCoroutine(SpawnFood());
 
     }
 }

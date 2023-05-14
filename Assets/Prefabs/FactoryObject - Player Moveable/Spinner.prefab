@@ -9,17 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1608964271729799083}
-  - component: {fileID: 5019452543823243268}
   - component: {fileID: 891659465}
   - component: {fileID: 891659464}
   - component: {fileID: 1376998109}
   m_Layer: 7
   m_Name: Spinner
-<<<<<<< HEAD
   m_TagString: Border
-=======
-  m_TagString: DraggableObject
->>>>>>> bf20f28f4cf5d10531eacdb3a543b5fdfb113775
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,19 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5019452543823243268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152552760135474073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622765de825054039a03c589bdba4aed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sellPrice: 5
 --- !u!114 &891659465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447ff6e632f4044769de179520e434c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 5
+  buyPrice: 5
+  rotateSpeed: -8
 --- !u!50 &891659464
 Rigidbody2D:
   serializedVersion: 4
@@ -75,14 +58,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152552760135474073}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -93,7 +76,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!61 &1376998109
 BoxCollider2D:
   m_ObjectHideFlags: 0

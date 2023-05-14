@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyerBelt : MonoBehaviour
+public class ConveyerBelt_1 : FactoryObject
 {
-    public float boostRate = 5;
-    public bool isGoRight = true;
+    public float boostRate = 20;
 
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -26,4 +25,15 @@ public class ConveyerBelt : MonoBehaviour
     {
         
     }
+
+    public class RotateWithRKey : MonoBehaviour
+{
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            transform.Rotate(Vector3.forward, 90.0f);
+        }
+    }
+}
 }

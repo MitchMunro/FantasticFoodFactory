@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.Rendering.PostProcessing;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager Instance;
     public UIManager uIManager;
 
-    private TextMeshProUGUI moneyText;
-    private TextMeshProUGUI moneyGoalText;
-    private TextMeshProUGUI timeText;
-
-    public GameObject speedSliderGameObj;
-    private Slider speedSlider;
+    public float sliderMin = 0.5f;
+    public float sliderMax = 4f;
+    private float scaledSliderValue = 1;
 
     public float timerCount { get; private set; }
-    public int money; //{ get; private set; }
+    public int money;
     private int moneyScoreAtRoundStart;
 
     public LevelGoal levelGoal;
@@ -31,25 +27,15 @@ public class GameManager : MonoBehaviour
     public GameObject FoodSpawnedParent;
     public GameObject ObjectsBoughtParent;
 
-    public GameObject GoalPipe1GameObj;
-    public GameObject GoalPipe2GameObj;
-    public GameObject GoalPipe3GameObj;
-
-    private Goal GoalPipe1;
-    private Goal GoalPipe2;
-    private Goal GoalPipe3;
 
     private bool finalScoreWorkDone = false;
 
-    public GameObject burger;
+    public GameObject[] FoodList;
     public GameObject sandwich;
 
-    public GameObject TutorialUI;
 
     private GameObject selectedObject;
     private float rotateSpeed = 100f;
-
-    public PostProcessVolume selectedObjectVolume;
 
     private void Awake()
     {
@@ -62,34 +48,18 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-        // Get all the text components attached to the canvas so they can be updated later.
-        var canvas = GameObject.Find("Canvas").transform.Find("ScoringPanel");
-
-        var moneyTextGameObj = canvas.Find("MoneyText").gameObject;
-        var moneyGoalTextGameObj = canvas.Find("MoneyGoalText").gameObject;
-        var timeTextGameObj = canvas.Find("TimeText").gameObject;
-
-        moneyText = moneyTextGameObj.GetComponent<TextMeshProUGUI>();
-        moneyGoalText = moneyGoalTextGameObj.GetComponent<TextMeshProUGUI>();
-        timeText = timeTextGameObj.GetComponent<TextMeshProUGUI>();
-
         FoodSpawnedParent = transform.Find("FoodSpawned").gameObject;
-
-        if (GoalPipe1GameObj != null) GoalPipe1 = GoalPipe1GameObj.GetComponent<Goal>();
-        if (GoalPipe2GameObj != null) GoalPipe2 = GoalPipe1GameObj.GetComponent<Goal>();
-        if (GoalPipe3GameObj != null) GoalPipe3 = GoalPipe1GameObj.GetComponent<Goal>();
-
-        speedSlider = speedSliderGameObj.GetComponent<Slider>();
 
     }
 
     private void Start()
     {
-        moneyGoalText.text = $"Goal: $ {levelGoal.moneyGoal}";
-        moneyText.text = "Money: $ ";
-        timeText.text = $"Time: ";
+        uIManager.SetTextMoneyGoal($"Goal: $ {levelGoal.moneyGoal}");
+        uIManager.SetTextMoney("Money: $ ");
+        uIManager.SetTextTimer($"Time: ");
         UpdateScore(levelGoal.startingMoney);
-        TutorialUI.SetActive(true);
+
+        scaledSliderValue = uIManager.SpeedSliderValue();
 
     }
 
@@ -97,8 +67,6 @@ public class GameManager : MonoBehaviour
     {
         Timer();
         SelectAndMoveItems();
-
-
     }
 
     private void SelectAndMoveItems()
@@ -112,41 +80,35 @@ public class GameManager : MonoBehaviour
             if (hit.collider != null && hit.collider.CompareTag("DraggableObject"))
             {
                 // Store the selected object
-                selectedObject = hit.collider.gameObject;
-                Debug.Log(selectedObject.name);
-
-                //New outline script
-
-                // Deselect any previously selected object
-                if (selectedObject != null)
-                {
-                    selectedObjectVolume.enabled = false;
-                }
-
-                // Store the selected object
-                selectedObject = hit.collider.gameObject;
-                selectedObjectVolume = selectedObject.GetComponent<PostProcessVolume>();
-                selectedObjectVolume.enabled = true;
-                Debug.Log(selectedObject.name);
+                selectedObject = hit.collider.attachedRigidbody.gameObject;
 
             }
             else
             {
                 // Deselect the object if something else is clicked
-                
                 if (selectedObject != null)
                 {
-                    selectedObjectVolume.enabled = false;
-                }
+                    var comp = selectedObject.GetComponent<FactoryObject>();
 
+                    if (comp != null)
+                    {
+                        comp.HighlightDeactivate();
+                    }
+                } 
                 selectedObject = null;
-                Debug.Log("No object selected.");
 
             }
         }
 
         //Everything below this is only called if there is a selected object.
         if (selectedObject == null) return;
+
+        var component = selectedObject.GetComponent<FactoryObject>();
+
+        if (component != null)
+        {
+            component.HighlightActivate();
+        }
 
         // If an object is selected, drag it with the mouse
         if (Input.GetMouseButton(0))
@@ -165,11 +127,14 @@ public class GameManager : MonoBehaviour
             selectedObject.transform.Rotate(-Vector3.forward * rotateSpeed * Time.deltaTime);
         }
 
+
         if (Input.GetKey(KeyCode.D))
         {
-            var comp = selectedObject.GetComponent<ProductionLineObject>();
+            if (component != null)
+            {
+                component.SellObject();
+            }
 
-            comp.SellObject();
         }
 
     }
@@ -178,7 +143,7 @@ public class GameManager : MonoBehaviour
     {
         if (isFactoryPlaying) timerCount += Time.deltaTime;
 
-        timeText.text = $"Time: {timerCount.ToString("F2")} / {levelGoal.timeLimit}.00";
+        uIManager.SetTextTimer($"Time: {timerCount.ToString("F2")} / {levelGoal.timeLimit}.00");
 
 
         if (!finalScoreWorkDone &&
@@ -213,7 +178,7 @@ public class GameManager : MonoBehaviour
     {
         money += scoreToAdd;
 
-        moneyText.text = $"Money: ${money}";
+        uIManager.SetTextMoney($"Money: ${money}");
     }
 
     public void PlayFactory()
@@ -233,10 +198,6 @@ public class GameManager : MonoBehaviour
         isFactoryPlaying = true;
         timerCount = 0f;
 
-        //if (GoalPipe1 != null) GoalPipe1.OpenLid();
-        //if (GoalPipe2 != null) GoalPipe2.OpenLid();
-        //if (GoalPipe3 != null) GoalPipe3.OpenLid();
-
     }
 
     public void StopFactory()
@@ -244,10 +205,6 @@ public class GameManager : MonoBehaviour
         playPauseButtonImage = ButtonState.Play;
 
         isFactoryPlaying = false;
-
-        //if (GoalPipe1 != null) GoalPipe1.CloseLid();
-        //if (GoalPipe2 != null) GoalPipe2.CloseLid();
-        //if (GoalPipe3 != null) GoalPipe3.CloseLid();
 
     }
 
@@ -272,8 +229,8 @@ public class GameManager : MonoBehaviour
 
         foreach(Transform transform in ObjectsBoughtParent.transform)
         {
-            var component = transform.gameObject.GetComponent<ProductionLineObject>();
-            moneySpent += component.sellPrice;
+            var component = transform.gameObject.GetComponent<FactoryObject>();
+            moneySpent += component.buyPrice;
         }
 
         money = levelGoal.startingMoney - moneySpent;
@@ -283,7 +240,8 @@ public class GameManager : MonoBehaviour
 
     public float SpeedSliderMultiplier()
     {
-        return speedSlider.value;
+        scaledSliderValue = Mathf.Lerp(sliderMin, sliderMax, uIManager.SpeedSliderValue());
+        return scaledSliderValue;
     }
 
 }
