@@ -15,7 +15,7 @@ public class EvilRat : MonoBehaviour
 
     void Start()
     {
-            transform.position = new Vector2(Random.Range(-5f, 2f), Random.Range(-4f, 4f));
+            transform.position = new Vector2(Random.Range(-4f, 2f), Random.Range(-4f, 4f));
 
             isMovingOnXAxis = Random.Range(0, 2) == 0;
             movementDirection = isMovingOnXAxis ? Vector2.right : Vector2.up;

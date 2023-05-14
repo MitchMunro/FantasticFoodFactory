@@ -4764,6 +4764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447ff6e632f4044769de179520e434c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buyPrice: 0
   rotateSpeed: 5
 --- !u!1 &1279351332 stripped
 GameObject:
@@ -4781,6 +4782,7 @@ GameObject:
   - component: {fileID: 1313491392}
   - component: {fileID: 1313491391}
   - component: {fileID: 1313491390}
+  - component: {fileID: 1313491393}
   m_Layer: 0
   m_Name: GameEngine & Canvas
   m_TagString: Untagged
@@ -4800,14 +4802,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71d6499d51574cf89a8b099940b655b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playPauseButtonGameObject: {fileID: 1117096577}
+  playPauseButtonGameObj: {fileID: 1792024142}
   playButtonSprite: {fileID: 21300000, guid: b0720d16fea9246729da615c2cd59b0f, type: 3}
   pauseButtonSprite: {fileID: 21300000, guid: d6511bb0e435641be804621d72989403, type: 3}
   replayButtonSprite: {fileID: 21300000, guid: 80f4314a770674921b0385cd1df06c0c, type: 3}
+  crossButtonSprite: {fileID: 0}
+  moneyTextGameObj: {fileID: 1688548357}
+  moneyGoalTextGameObj: {fileID: 947410030}
+  timeTextGameObj: {fileID: 594136205}
   statusPanel: {fileID: 1076950899}
+  TutorialUI: {fileID: 1702776090}
   tutorialMainPanelParent: {fileID: 1017715282}
-  tutorialCompletePanelObject: {fileID: 238185002}
-  game: {fileID: 0}
+  tutorialCompletePanelObj: {fileID: 238185002}
+  speedSliderGameObj: {fileID: 1021477372}
 --- !u!114 &1313491391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4820,8 +4827,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862326c9acb624b54aac54f4f118fbed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMainMenu: 0
   uIManager: {fileID: 1313491390}
-  speedSliderGameObj: {fileID: 1021477372}
+  sliderMin: 0.5
+  sliderMax: 4
   money: 0
   levelGoal:
     moneyGoal: 110
@@ -4829,10 +4838,8 @@ MonoBehaviour:
     timeLimit: 10
   FoodSpawnedParent: {fileID: 2057115884}
   ObjectsBoughtParent: {fileID: 338844009}
-  GoalPipe1GameObj: {fileID: 4952212666644316366}
-  GoalPipe2GameObj: {fileID: 0}
-  GoalPipe3GameObj: {fileID: 0}
-  burger: {fileID: 0}
+  FoodList: []
+  sandwich: {fileID: 0}
 --- !u!4 &1313491392
 Transform:
   m_ObjectHideFlags: 0
@@ -4851,6 +4858,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1313491393
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313491389}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6c188381a8d384044824971d705aa96f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1355815411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7259,11 +7362,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124034577}
   m_CullTransparentMesh: 1
---- !u!1 &4952212666644316366 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3125303575984232882, guid: 625b28016f1d5184e91d1654ba32f826, type: 3}
-  m_PrefabInstance: {fileID: 8063277479890655612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8063277479890655612
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -120,7 +120,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 150}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 0
+<<<<<<< HEAD
   controlID: 17
+=======
+  controlID: 27
+>>>>>>> feature-level4
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +150,11 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 150}
   m_MaxSize: {x: 8096, y: 24288}
   vertical: 1
+<<<<<<< HEAD
   controlID: 18
+=======
+  controlID: 28
+>>>>>>> feature-level4
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +173,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 834.5
+<<<<<<< HEAD
     height: 109.5
+=======
+    height: 224.5
+>>>>>>> feature-level4
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
@@ -189,9 +201,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 109.5
     width: 834.5
     height: 357.5
+=======
+    y: 224.5
+    width: 834.5
+    height: 342.5
+>>>>>>> feature-level4
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
@@ -215,9 +233,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 467
     width: 834.5
     height: 288
+=======
+    y: 567
+    width: 834.5
+    height: 188
+>>>>>>> feature-level4
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
@@ -249,7 +273,11 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
+<<<<<<< HEAD
   controlID: 131
+=======
+  controlID: 129
+>>>>>>> feature-level4
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -351,7 +379,11 @@ MonoBehaviour:
     x: 0
     y: 83
     width: 833.5
+<<<<<<< HEAD
     height: 88.5
+=======
+    height: 203.5
+>>>>>>> feature-level4
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -783,9 +815,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 192.5
     width: 833.5
     height: 336.5
+=======
+    y: 307.5
+    width: 833.5
+    height: 321.5
+>>>>>>> feature-level4
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -801,7 +839,11 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+<<<<<<< HEAD
   m_TargetSize: {x: 833.5, y: 315.5}
+=======
+  m_TargetSize: {x: 833.5, y: 300.5}
+>>>>>>> feature-level4
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -818,8 +860,13 @@ MonoBehaviour:
     vZoomLockedByDefault: 0
     m_HBaseRangeMin: -208.375
     m_HBaseRangeMax: 208.375
+<<<<<<< HEAD
     m_VBaseRangeMin: -78.875
     m_VBaseRangeMax: 78.875
+=======
+    m_VBaseRangeMin: -75.125
+    m_VBaseRangeMax: 75.125
+>>>>>>> feature-level4
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -838,9 +885,15 @@ MonoBehaviour:
       x: 0
       y: 21
       width: 833.5
+<<<<<<< HEAD
       height: 315.5
     m_Scale: {x: 2, y: 2}
     m_Translation: {x: 416.75, y: 157.75}
+=======
+      height: 300.5
+    m_Scale: {x: 2, y: 2}
+    m_Translation: {x: 416.75, y: 150.25}
+>>>>>>> feature-level4
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -848,12 +901,21 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -208.375
+<<<<<<< HEAD
       y: -78.875
       width: 416.75
       height: 157.75
     m_MinimalGUI: 1
   m_defaultScale: 2
   m_LastWindowPixelSize: {x: 1667, y: 673}
+=======
+      y: -75.125
+      width: 416.75
+      height: 150.25
+    m_MinimalGUI: 1
+  m_defaultScale: 2
+  m_LastWindowPixelSize: {x: 1667, y: 643}
+>>>>>>> feature-level4
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -880,9 +942,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 550
     width: 833.5
     height: 267
+=======
+    y: 650
+    width: 833.5
+    height: 167
+>>>>>>> feature-level4
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -928,9 +996,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 846a0000
       m_LastClickedID: 0
       m_ExpandedIDs: c2e4ffffcae9ffff80ecffffe4efffff98f2ffff6cf5ffff74f9ffff
+=======
+      m_SelectedIDs: 4ab90000
+      m_LastClickedID: 47434
+      m_ExpandedIDs: ac91ffff1295ffff3c98ffffd49affff6c9dffffb0a7ffff04b0ffff52b0ffffe8b5ffffaebaffff5ebdffff60ccffff60d1ffff64d6ffff08dbffffb6e2ffff46e5ffff8cebffffa6eeffff36efffff96faffff5a88000080880000428900004e890000ba9c00006c9d00007a9d0000
+>>>>>>> feature-level4
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1000,23 +1074,33 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Scenes
+=======
+  - Assets/Scripts
+>>>>>>> feature-level4
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/net/Game-Design_Digital-Game-Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 786a0000
     m_LastClickedID: 27256
     m_ExpandedIDs: 00000000526a000000ca9a3b
+=======
+    m_SelectedIDs: e46a0000
+    m_LastClickedID: 27364
+    m_ExpandedIDs: 00000000c06a0000e46a000000ca9a3b
+>>>>>>> feature-level4
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1044,7 +1128,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000526a0000
+=======
+    m_ExpandedIDs: 00000000c06a0000
+>>>>>>> feature-level4
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1096,7 +1184,11 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
+<<<<<<< HEAD
     m_ScrollPosition: {x: 0, y: 89}
+=======
+    m_ScrollPosition: {x: 0, y: 908.5}
+>>>>>>> feature-level4
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 151.5

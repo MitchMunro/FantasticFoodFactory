@@ -141,5 +141,7 @@ public enum FoodType
     Icecream,
     LemonPie,
     Waffles,
-    Salmon
+    Salmon,
+    Dish,
+    Spaghetti
 }
