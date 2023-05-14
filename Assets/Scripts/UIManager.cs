@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public Sprite playButtonSprite;
     public Sprite pauseButtonSprite;
     public Sprite replayButtonSprite;
+    public Sprite crossButtonSprite;
 
     public GameObject moneyTextGameObj;
     public GameObject moneyGoalTextGameObj;
