@@ -138,5 +138,11 @@ public enum FoodType
     Bun,
     Burger,
     Steak,
-    Icecream
+    Icecream,
+    LemonPie,
+    Waffles,
+    Salmon,
+    Dish,
+    Baguette,
+    Baguette_Dish
 }

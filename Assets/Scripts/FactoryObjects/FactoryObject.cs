@@ -5,6 +5,7 @@ public class FactoryObject : MonoBehaviour
     public int buyPrice;
 
     private GameObject highlightObject;
+    private float highlightThickness = 0.2f;
 
     void Start()
     {
@@ -41,19 +42,23 @@ public class FactoryObject : MonoBehaviour
             highlightComponent.transform.localRotation = renderer.gameObject.transform.localRotation;
             highlightComponent.transform.localPosition = renderer.gameObject.transform.localPosition;
 
+            //Calculate the how wide the sprite is so that you can add a uniform length highlight
+            float xScale =  highlightThickness / renderer.sprite.bounds.size.x;
+            float yScale =  highlightThickness / renderer.sprite.bounds.size.y;
+
+
             highlightComponent.transform.localPosition = Vector3.zero;
             highlightComponent.transform.localScale = new Vector3(
-                highlightComponent.transform.localScale.x + 0.2f,
-                highlightComponent.transform.localScale.y + 0.2f,
+                highlightComponent.transform.localScale.x + xScale,
+                highlightComponent.transform.localScale.y + yScale,
                 1f);
 
             // Copy the SpriteRenderer component onto the new GameObject
             SpriteRenderer newSpriteRenderer = highlightComponent.AddComponent<SpriteRenderer>();
             newSpriteRenderer.sprite = renderer.sprite;
 
-            newSpriteRenderer.color = Color.white;
-            var color = Color.white;
-            color.a = 0.3f;
+            var color = Color.black;
+            color.a = 0.4f;
             newSpriteRenderer.color = color;
 
             newSpriteRenderer.flipX = renderer.flipX;
