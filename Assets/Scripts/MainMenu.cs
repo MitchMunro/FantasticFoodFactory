@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void TutorialButton()
     {
-        SceneManager.LoadScene("Tutorial Level_New Art");
+        SceneManager.LoadScene("Tutorial Level_New");
     }
 
     public void Level1Button()

@@ -9,4 +9,10 @@ public class SceneSelect : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void ReloadButton()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
 }
