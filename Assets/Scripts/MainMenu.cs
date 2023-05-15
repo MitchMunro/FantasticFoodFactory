@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
 
     public void Level4Button()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level 4");
 
     }
 
