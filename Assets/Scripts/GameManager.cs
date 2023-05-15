@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     //This is used to check if the play button has been clicked, and therefore if the factory is playing or not
     public bool isFactoryPlaying { get; private set; }
-    public ButtonState playPauseButtonImage { get; private set; } = ButtonState.Play;
+    public ButtonState buttonState { get; private set; } = ButtonState.Play;
 
     public GameObject FoodSpawnedParent;
     public GameObject ObjectsBoughtParent;
@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     private bool finalScoreWorkDone = false;
 
     public GameObject[] FoodList;
+    public GameObject sandwich;
+
 
     private GameObject selectedObject;
     private float rotateSpeed = 100f;
@@ -157,7 +159,7 @@ public class GameManager : MonoBehaviour
 
     private void FinalScoring()
     {
-        playPauseButtonImage = ButtonState.Replay;
+        buttonState = ButtonState.Replay;
         uIManager.ButtonChangedToReplay();
 
         if (money >= levelGoal.moneyGoal)
@@ -182,7 +184,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayFactory()
     {
-        playPauseButtonImage = ButtonState.Pause;
+        buttonState = ButtonState.Pause;
 
         //// Saves money score at round start so that it can be reset to this value later.
         //moneyScoreAtRoundStart = moneyScore;
@@ -201,7 +203,7 @@ public class GameManager : MonoBehaviour
 
     public void StopFactory()
     {
-        playPauseButtonImage = ButtonState.Play;
+        buttonState = ButtonState.Play;
 
         isFactoryPlaying = false;
 
@@ -243,11 +245,25 @@ public class GameManager : MonoBehaviour
         return scaledSliderValue;
     }
 
+    public void NoBuildZoneViolated()
+    {
+        buttonState = ButtonState.Cross;
+        uIManager.ButtonChangedToCross();
+    }
+
+    public void NoBuildZoneUnViolated()
+    {
+        buttonState = ButtonState.Play;
+        uIManager.ButtonChangedToPlay();
+
+    }
+
 }
 
 public enum ButtonState
 {
     Play,
     Pause,
-    Replay
+    Replay,
+    Cross
 }

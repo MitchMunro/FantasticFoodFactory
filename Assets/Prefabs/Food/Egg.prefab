@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5649999932321951905}
   - component: {fileID: 5649999932321951910}
-  - component: {fileID: 915235686463207913}
   - component: {fileID: 5649999932321951911}
-  - component: {fileID: 6024904195584671883}
+  - component: {fileID: 915235686463207913}
+  - component: {fileID: -227737066402365478}
   m_Layer: 0
   m_Name: Egg
   m_TagString: MovableObject
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5649999932321951910
 SpriteRenderer:
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: ed8d4b90b5309194bafb00b788e35a82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 821a36ace2ef84815beb035ca3f1e9c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,33 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &915235686463207913
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649999932321951908}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 191fb4b1957c84c4db58f2d270b4c95d, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!60 &5649999932321951911
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -158,21 +131,43 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.19206679, y: 0.37674806}
-      - {x: -0.25782955, y: 0.34677023}
-      - {x: -0.4182697, y: 0.12631562}
-      - {x: -0.4527445, y: -0.18776779}
-      - {x: -0.26042396, y: -0.3767797}
-      - {x: 0.00022578984, y: -0.37747815}
-      - {x: 0.06800296, y: -0.34764615}
-      - {x: 0.35517278, y: -0.3169701}
-      - {x: 0.38222694, y: -0.31408012}
-      - {x: 0.47746253, y: -0.21873039}
-      - {x: 0.4768977, y: -0.023159266}
-      - {x: 0.30015278, y: 0.21499489}
-      - {x: -0.06644787, y: 0.3867082}
+    - - {x: -0.18976426, y: 0.29314303}
+      - {x: -0.3584547, y: 0.124253035}
+      - {x: -0.3516779, y: -0.010385513}
+      - {x: -0.010375261, y: -0.31876993}
+      - {x: 0.24815893, y: -0.32439303}
+      - {x: 0.3784585, y: -0.22285557}
+      - {x: 0.38408136, y: -0.101537466}
+      - {x: 0.0016174316, y: 0.29595447}
   m_UseDelaunayMesh: 0
---- !u!114 &6024904195584671883
+--- !u!50 &915235686463207913
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649999932321951908}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: 191fb4b1957c84c4db58f2d270b4c95d, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!114 &-227737066402365478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,9 +176,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5649999932321951908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08941c6f49f6f854bb63745146306e65, type: 3}
+  m_Script: {fileID: 11500000, guid: d1bded5c12d0347ea82cbd1befa6e197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: 9
+  foodType_level4: 2
   fadeTime: 3
   scoreValue: 5

@@ -12,3 +12,11 @@ public class Egg : Food
         CombineFood(collision, FoodType.Milk, "Custard");
     }
 }
+
+public class Egg : Food_level4
+{
+    private new void OnCollisionEnter2D(Collision2D collision)
+    {
+
+    }
+}

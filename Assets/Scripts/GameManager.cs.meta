@@ -3,7 +3,18 @@ guid: 862326c9acb624b54aac54f4f118fbed
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - uIManager: {instanceID: 0}
+  - speedSliderGameObj: {instanceID: 0}
+  - FoodSpawnedParent: {instanceID: 0}
+  - ObjectsBoughtParent: {instanceID: 0}
+  - GoalPipe1GameObj: {instanceID: 0}
+  - GoalPipe2GameObj: {instanceID: 0}
+  - GoalPipe3GameObj: {instanceID: 0}
+  - burger: {instanceID: 0}
+  - sandwich: {instanceID: 0}
+  - TutorialUI: {instanceID: 0}
+  - selectedObjectVolume: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

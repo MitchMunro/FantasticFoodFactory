@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyerBelt : FactoryObject
+public class ConveyerBelt_1 : FactoryObject
 {
     public float boostRate = 20;
 
@@ -26,4 +26,15 @@ public class ConveyerBelt : FactoryObject
     {
         
     }
+
+    public class RotateWithRKey : MonoBehaviour
+{
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            transform.Rotate(Vector3.forward, 90.0f);
+        }
+    }
+}
 }
