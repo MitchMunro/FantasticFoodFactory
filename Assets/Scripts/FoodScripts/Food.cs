@@ -143,5 +143,17 @@ public enum FoodType
     Waffles,
     Salmon,
     Dish,
-    Spaghetti
+    Spaghetti,
+    SpaghettiAndMeatballs,
+    Apple,
+    Butter,
+    FreshEgg,
+    Flour,
+    Milk,
+    Sugar,
+    ApplePie,
+    EggTart,
+    Custard,
+    PuffPastry,
+    AppleFilling
 }
