@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5649999932321951905}
   - component: {fileID: 5649999932321951910}
-  - component: {fileID: 915235686463207913}
   - component: {fileID: 5649999932321951911}
-  - component: {fileID: -9001281048980576286}
+  - component: {fileID: 915235686463207913}
+  - component: {fileID: 4307480552998434805}
   m_Layer: 0
-  m_Name: Apple
+  m_Name: FreshEgg
   m_TagString: MovableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 07f173d3cd79ab941bc54ebf9efc55e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed8d4b90b5309194bafb00b788e35a82, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,33 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &915235686463207913
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649999932321951908}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 191fb4b1957c84c4db58f2d270b4c95d, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!60 &5649999932321951911
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -158,19 +131,45 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.09185128, y: 0.2602106}
-      - {x: -0.20832753, y: 0.22095254}
-      - {x: -0.3584547, y: 0.122190446}
-      - {x: -0.3826167, y: -0.018635854}
-      - {x: -0.3604287, y: -0.19794227}
-      - {x: -0.21457113, y: -0.35589644}
+    - - {x: -0.2666641, y: 0.3515869}
+      - {x: -0.42920256, y: 0.111949064}
+      - {x: -0.4408817, y: -0.19494505}
+      - {x: -0.25184062, y: -0.38028976}
       - {x: 0.24815893, y: -0.32439303}
-      - {x: 0.415585, y: -0.18366645}
-      - {x: 0.40883234, y: -0.035534747}
-      - {x: 0.145264, y: 0.2900275}
-      - {x: 0.0016174316, y: 0.29595447}
+      - {x: 0.46612427, y: -0.30283138}
+      - {x: 0.4732851, y: -0.036941633}
+      - {x: 0.38263068, y: 0.14805745}
+      - {x: 0.22522676, y: 0.26112646}
+      - {x: -0.07835837, y: 0.38669622}
   m_UseDelaunayMesh: 0
---- !u!114 &-9001281048980576286
+--- !u!50 &915235686463207913
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649999932321951908}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: 191fb4b1957c84c4db58f2d270b4c95d, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!114 &4307480552998434805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,9 +178,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5649999932321951908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae78316a858d53541a4ffd74791c338d, type: 3}
+  m_Script: {fileID: 11500000, guid: fadaa653f1eb0d540b7ddf702244eab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: 11
+  foodType: 13
   fadeTime: 3
   scoreValue: 5

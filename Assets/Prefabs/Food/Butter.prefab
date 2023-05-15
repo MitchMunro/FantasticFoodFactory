@@ -179,6 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec1f8517854d5b48b0c6b8fa05b95fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: 8
+  foodType: 12
   fadeTime: 3
   scoreValue: 5

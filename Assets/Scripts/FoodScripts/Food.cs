@@ -144,7 +144,7 @@ public enum FoodType
     SpaghettiAndMeatballs,
     Apple,
     Butter,
-    Egg,
+    FreshEgg,
     Flour,
     Milk,
     Sugar,
