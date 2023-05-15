@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodType: 2
+  fadeTime: 3
+  scoreValue: 5
 --- !u!212 &1606444058409737061
 SpriteRenderer:
   m_ObjectHideFlags: 0

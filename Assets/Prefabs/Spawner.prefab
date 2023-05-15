@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 574847939}
   - component: {fileID: 574847940}
   m_Layer: 0
-  m_Name: XFoodIconBox
+  m_Name: FoodIconBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4836967264706109259}
   - component: {fileID: 4836967264776260521}
-  - component: {fileID: 4836967264776260520}
   - component: {fileID: 4836967264776260523}
   m_Layer: 0
   m_Name: Box
@@ -245,7 +244,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.50219786, g: 1, b: 0.4669811, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -255,22 +254,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4836967264776260520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4836967264776260522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab77ff95537bc443db46903f8a75bcb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ball: {fileID: 5649999932321951908, guid: 7b441ea2e2f7544a0a93dcd08169daa7, type: 3}
-  spawnRate: 0.8
-  sprite: {fileID: 0}
-  isBlue: 0
 --- !u!61 &4836967264776260523
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -409,6 +392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4836967266465236338}
+  - component: {fileID: 904286459}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -432,5 +416,20 @@ Transform:
   - {fileID: 4836967266361284168}
   - {fileID: 574847939}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &904286459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4836967266465236349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab77ff95537bc443db46903f8a75bcb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodToSpawn: {fileID: 5649999932321951908, guid: ce73a14a002c64f6ebdb96e55db4ee3b, type: 3}
+  spawnRate: 0.8
+  colorChangingSprite: {fileID: 4836967264776260521}

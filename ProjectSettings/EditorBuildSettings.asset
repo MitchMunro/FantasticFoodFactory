@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tutorial Level.unity
-    guid: 2aff9568663304fa393a270cafdec1be
+    path: Assets/Scenes/MainMenu.unity
+    guid: 29f6f977159cb46eea359aa69c02239b
   - enabled: 1
-    path: Assets/Scenes/Tutorial Level 2.unity
-    guid: 9131aeb5905e34a9ea2827bc3788ea1c
+    path: Assets/Scenes/Tutorial Level_New.unity
+    guid: 9c26503f6814a4a12b96a351d47e4385
+  - enabled: 1
+    path: Assets/Scenes/Tutorial Level 2_New.unity
+    guid: 5cdb7920c62f3453ca0436cdf2fe1028
+  - enabled: 1
+    path: Assets/Scenes/Level 3 - Meatball Pinball - Mitch.unity
+    guid: ae1f8940940f343f096ebf6ede3bd5cb
   - enabled: 1
     path: Assets/Scenes/QuickLevel_1.unity
     guid: be8d2b76d6e6c42cc9cf2f99c88ee3c0
+  - enabled: 1
+    path: Assets/Scenes/Level5_New Art.unity
+    guid: c3763038e140bc54698d4360c21e08f1
   m_configObjects: {}
