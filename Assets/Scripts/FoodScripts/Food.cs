@@ -127,10 +127,6 @@ public class Food : MonoBehaviour
             }
         }
     }
-
-
-
-
 }
 
 public enum FoodType
@@ -142,6 +138,19 @@ public enum FoodType
     LemonPie,
     Waffles,
     Salmon,
-    Dish,
-    Spaghetti
+    Jelly,
+    Meatball,
+    Spaghetti,
+    SpaghettiAndMeatballs,
+    Apple,
+    Butter,
+    FreshEgg,
+    Flour,
+    Milk,
+    Sugar,
+    ApplePie,
+    EggTart,
+    Custard,
+    PuffPastry,
+    AppleFilling
 }
