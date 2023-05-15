@@ -17,6 +17,7 @@ public class ConveyerBelt : FactoryObject
             Vector2 pushDirection = transform.right;
 
             rb.AddForce(pushDirection * boostRate);
+            Debug.Log(pushDirection * boostRate);
 
         }
     }

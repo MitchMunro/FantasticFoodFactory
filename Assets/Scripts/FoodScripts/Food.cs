@@ -127,10 +127,6 @@ public class Food : MonoBehaviour
             }
         }
     }
-
-
-
-
 }
 
 public enum FoodType
@@ -141,5 +137,16 @@ public enum FoodType
     Icecream,
     LemonPie,
     Waffles,
-    Salmon
+    Salmon,
+    Apple,
+    Butter,
+    Egg,
+    Flour,
+    Milk,
+    Sugar,
+    ApplePie,
+    EggTart,
+    Custard,
+    PuffPastry,
+    AppleFilling
 }

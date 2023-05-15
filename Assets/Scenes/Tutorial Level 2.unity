@@ -1323,7 +1323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4560892000100587242, guid: 94031289e7f9645a5a3760a9b1ef9a07, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.33
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 4560892000100587242, guid: 94031289e7f9645a5a3760a9b1ef9a07, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2282,6 +2282,9 @@ MonoBehaviour:
   playButtonSprite: {fileID: 21300000, guid: b0720d16fea9246729da615c2cd59b0f, type: 3}
   pauseButtonSprite: {fileID: 21300000, guid: d6511bb0e435641be804621d72989403, type: 3}
   replayButtonSprite: {fileID: 21300000, guid: 80f4314a770674921b0385cd1df06c0c, type: 3}
+  moneyTextGameObj: {fileID: 0}
+  moneyGoalTextGameObj: {fileID: 0}
+  timeTextGameObj: {fileID: 0}
   statusPanel: {fileID: 1808327278}
   TutorialUI: {fileID: 1933292077}
   tutorialMainPanelParent: {fileID: 595308940}
@@ -2299,6 +2302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862326c9acb624b54aac54f4f118fbed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMainMenu: 0
   uIManager: {fileID: 1342413713}
   sliderMin: 0.5
   sliderMax: 4
