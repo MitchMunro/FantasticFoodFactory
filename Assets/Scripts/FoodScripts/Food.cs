@@ -152,5 +152,6 @@ public enum FoodType
     EggTart,
     Custard,
     PuffPastry,
-    AppleFilling
+    AppleFilling,
+    Dish
 }
