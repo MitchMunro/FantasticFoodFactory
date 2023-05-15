@@ -127,10 +127,6 @@ public class Food : MonoBehaviour
             }
         }
     }
-
-
-
-
 }
 
 public enum FoodType
@@ -145,5 +141,16 @@ public enum FoodType
     Jelly,
     Meatball,
     Spaghetti,
-    SpaghettiAndMeatballs
+    SpaghettiAndMeatballs,
+    Apple,
+    Butter,
+    FreshEgg,
+    Flour,
+    Milk,
+    Sugar,
+    ApplePie,
+    EggTart,
+    Custard,
+    PuffPastry,
+    AppleFilling
 }

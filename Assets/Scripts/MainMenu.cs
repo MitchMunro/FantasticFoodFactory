@@ -36,7 +36,7 @@ public class MainMenu : MonoBehaviour
 
     public void Level5Button()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level5_New Art");
 
     }
 }
