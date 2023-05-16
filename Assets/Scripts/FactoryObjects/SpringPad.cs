@@ -13,8 +13,12 @@ public class SprintPad : FactoryObject
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                Vector2 bounceDirection = Vector2.up;
-                rb.AddForce(bounceDirection * bounceForce, ForceMode2D.Impulse);
+               
+               Vector2 collisionNormal = collision.contacts[0].normal;
+               Vector2 bounceDirection = Vector2.Reflect(Vector2.down, collisionNormal);
+               
+               rb.AddForce(bounceDirection * bounceForce, ForceMode2D.Impulse);
+                
             }
         }
     }
