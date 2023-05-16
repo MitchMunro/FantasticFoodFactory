@@ -30065,9 +30065,9 @@ MonoBehaviour:
   moneyGoalTextGameObj: {fileID: 2460328777450606730}
   timeTextGameObj: {fileID: 2460328777096927672}
   statusPanel: {fileID: 2460328777917857727}
-  TutorialUI: {fileID: 0}
-  tutorialMainPanelParent: {fileID: 0}
-  tutorialCompletePanelObj: {fileID: 0}
+  TutorialUI: {fileID: 2460328776887372768}
+  tutorialMainPanelParent: {fileID: 2460328776613593272}
+  tutorialCompletePanelObj: {fileID: 2460328776652879277}
   speedSliderGameObj: {fileID: 1817261517}
 --- !u!1 &2460328776887372768
 GameObject:
