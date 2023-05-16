@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af291f0dfcab4acdaa6e830cae7a060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: 8
+  foodType: 9
   fadeTime: 3
   scoreValue: 5
 --- !u!60 &7602347489621337354
