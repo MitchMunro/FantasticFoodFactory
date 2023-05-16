@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
     public void Level2Button()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("level2last");
 
     }
 
