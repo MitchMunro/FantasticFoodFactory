@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4379217324626234099}
-  - component: {fileID: 4379217324626234097}
   - component: {fileID: 4379217324626234103}
+  - component: {fileID: 3747880215372086181}
   m_Layer: 0
   m_Name: PlatformForLevel5
   m_TagString: DraggableObject
@@ -34,7 +34,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &4379217324626234097
+--- !u!114 &4379217324626234103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379217324626234109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622765de825054039a03c589bdba4aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buyPrice: 10
+--- !u!50 &3747880215372086181
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -50,7 +63,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: d9cf6cb260be84a729de74a11dad2011, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -61,19 +74,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &4379217324626234103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4379217324626234109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622765de825054039a03c589bdba4aed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buyPrice: 10
 --- !u!1 &8085411879432416619
 GameObject:
   m_ObjectHideFlags: 0
