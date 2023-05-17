@@ -193,6 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff222739328f1428592c8ce1cdbac8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: 0
+  foodType: 24
   fadeTime: 3
   scoreValue: 5

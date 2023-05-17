@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39f1b8c5f477477d99521a862a318c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodType: 1
+  fadeTime: 3
+  scoreValue: 5
 --- !u!212 &5202533426543674441
 SpriteRenderer:
   m_ObjectHideFlags: 0

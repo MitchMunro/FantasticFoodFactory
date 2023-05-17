@@ -153,5 +153,7 @@ public enum FoodType
     Custard,
     PuffPastry,
     AppleFilling,
-    Dish
+    Dish,
+    Baguette,
+    Baguette_Dish
 }
