@@ -9,6 +9,6 @@ public class Bun : Food
     {
         base.OnCollisionEnter2D(collision);
 
-        CombineFood(collision, FoodType.Steak, "ApplePie");
+        CombineFood(collision, FoodType.Steak, "Burger");
     }
 }
