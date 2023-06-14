@@ -18544,7 +18544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedGameObjects: []
-  nextSceneName: Tutorial Level 2
+  nextSceneName: Tutorial Level 2_New
 --- !u!114 &112250996579122000
 MonoBehaviour:
   m_ObjectHideFlags: 0

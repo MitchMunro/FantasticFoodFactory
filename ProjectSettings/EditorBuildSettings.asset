@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
-    guid: 29f6f977159cb46eea359aa69c02239b
+    guid: 2940b477dfa3dcc4cb763c4bcfccfbfc
   - enabled: 1
     path: Assets/Scenes/Tutorial Level_New.unity
     guid: 9c26503f6814a4a12b96a351d47e4385
@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuickLevel_1.unity
     guid: be8d2b76d6e6c42cc9cf2f99c88ee3c0
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: fe95a294b33cb469e8da3941c606b379
+  - enabled: 1
+    path: Assets/Scenes/level2last.unity
+    guid: e975c6a613b424fccb9e11ab0c136cc8
+  - enabled: 1
+    path: Assets/Scenes/Level5_New Art.unity
+    guid: c3763038e140bc54698d4360c21e08f1
   m_configObjects: {}

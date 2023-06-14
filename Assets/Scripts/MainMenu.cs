@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
     public void Level2Button()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("level2last");
 
     }
 
@@ -30,13 +30,13 @@ public class MainMenu : MonoBehaviour
 
     public void Level4Button()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level 4");
 
     }
 
     public void Level5Button()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level5_New Art");
 
     }
 }
