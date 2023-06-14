@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyerBelt_1 : FactoryObject
+public class ConveyerBelt : FactoryObject
 {
     public float boostRate = 20;
 
@@ -17,7 +17,6 @@ public class ConveyerBelt_1 : FactoryObject
             Vector2 pushDirection = transform.right;
 
             rb.AddForce(pushDirection * boostRate);
-            Debug.Log(pushDirection * boostRate);
 
         }
     }

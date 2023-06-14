@@ -9325,11 +9325,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-    - target: {fileID: 7258466284731792430, guid: 4fc48ac63e7a44825ae9cf803beb85b0, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-=======
     - target: {fileID: 7258466284731792431, guid: 4fc48ac63e7a44825ae9cf803beb85b0, type: 3}
       propertyPath: ball
       value: 
@@ -9337,7 +9332,6 @@ PrefabInstance:
     - target: {fileID: 7258466285632239770, guid: 4fc48ac63e7a44825ae9cf803beb85b0, type: 3}
       propertyPath: m_SortingOrder
       value: 4
->>>>>>> 0ca851f7ffab968933884cb0d9c192b76507189e
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

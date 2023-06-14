@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
 
     private GameObject selectedObject;
+    Vector3 selectedObjectOffset;
     private float rotateSpeed = 100f;
 
     private void Awake()
@@ -111,12 +112,27 @@ public class GameManager : MonoBehaviour
             component.HighlightActivate();
         }
 
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Calculate the offset from the mouse to the center of the GameObject. 
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 objectCenter = selectedObject.transform.position;
+
+            selectedObjectOffset = mousePosition - objectCenter;
+
+        }
+
         // If an object is selected, drag it with the mouse
         if (Input.GetMouseButton(0))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            selectedObject.transform.position = new Vector3(mousePosition.x, mousePosition.y, selectedObject.transform.position.z);
+
+            Vector3 pos = new Vector3(mousePosition.x - selectedObjectOffset.x, mousePosition.y - selectedObjectOffset.y, selectedObject.transform.position.z);
+
+            selectedObject.transform.position = pos;
         }
+
 
         if (Input.GetKey(KeyCode.Q))
         {

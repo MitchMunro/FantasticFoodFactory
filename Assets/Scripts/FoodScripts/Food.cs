@@ -154,9 +154,6 @@ public enum FoodType
     PuffPastry,
     AppleFilling,
     Dish,
-    Spaghetti,
-    Meatball,
-    SpaghettiAndMeatballs
     Baguette,
     Baguette_Dish
 }
