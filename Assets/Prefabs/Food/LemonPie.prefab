@@ -179,4 +179,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodType: 4
   fadeTime: 3
-  scoreValue: 5
+  scoreValue: 10
