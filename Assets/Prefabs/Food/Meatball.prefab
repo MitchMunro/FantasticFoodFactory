@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5649999932321951910}
   - component: {fileID: 915235686463207913}
   - component: {fileID: 5731779590802782976}
-  - component: {fileID: 2236767589255187537}
   - component: {fileID: 7514295615965565923}
   m_Layer: 0
   m_Name: Meatball
@@ -150,21 +149,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.01}
   serializedVersion: 2
   m_Radius: 0.229
---- !u!114 &2236767589255187537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649999932321951908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194c596089597498482cff6bfc590643, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodType: 0
-  fadeTime: 3
-  scoreValue: 5
 --- !u!114 &7514295615965565923
 MonoBehaviour:
   m_ObjectHideFlags: 0

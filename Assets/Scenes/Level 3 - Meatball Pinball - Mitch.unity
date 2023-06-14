@@ -646,11 +646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4836967266465236338, guid: 09cab936a1fcd45c4a5d87ca4725d2c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.62
+      value: 15.8
       objectReference: {fileID: 0}
     - target: {fileID: 4836967266465236338, guid: 09cab936a1fcd45c4a5d87ca4725d2c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.58
+      value: 11.8
       objectReference: {fileID: 0}
     - target: {fileID: 4836967266465236338, guid: 09cab936a1fcd45c4a5d87ca4725d2c0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -59286,11 +59286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4836967266465236338, guid: 09cab936a1fcd45c4a5d87ca4725d2c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.95
+      value: -9.8
       objectReference: {fileID: 0}
     - target: {fileID: 4836967266465236338, guid: 09cab936a1fcd45c4a5d87ca4725d2c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.37
+      value: 11.7
       objectReference: {fileID: 0}
     - target: {fileID: 4836967266465236338, guid: 09cab936a1fcd45c4a5d87ca4725d2c0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -79179,20 +79179,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!82 &6326322853941651953
 AudioSource:
-=======
---- !u!114 &6326322853941651953
-MonoBehaviour:
->>>>>>> Mitch-Working
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6326322853941651952}
   m_Enabled: 1
-<<<<<<< HEAD
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6c188381a8d384044824971d705aa96f, type: 3}
@@ -79281,9 +79275,3 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-=======
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff46986345944f5e8c6457a0df5c757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
->>>>>>> Mitch-Working
