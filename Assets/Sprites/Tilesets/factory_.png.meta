@@ -72,11 +72,12 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -89,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -101,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -113,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1599,76 +1603,76 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      factory__2: -64905942
-      factory__58: -2060888561
-      factory__32: 1609095704
-      factory__3: 863570376
-      factory__68: -1557406948
-      factory__63: 1336125899
-      factory__69: -359723202
-      factory__49: -477845604
-      factory__22: 794809745
-      factory__20: 397656195
-      factory__15: 1471390909
-      factory__41: 2087547855
-      factory__39: 121657728
-      factory__6: 1488765487
-      factory__10: -1085018254
-      factory__64: 1534350949
-      factory__18: 2084800556
-      factory__5: -1641660774
-      factory__8: 285558268
-      factory__65: -857984917
-      factory__11: 1924949140
-      factory__27: 2038254373
-      factory__34: -1990041389
-      factory__61: -1924000114
-      factory__55: -1980551339
-      factory__26: 453496877
-      factory__12: -976955302
-      factory__35: 1097204650
-      factory__66: 465497956
-      factory__7: 624828101
-      factory__53: 2147387158
-      factory__16: 566186584
-      factory__33: -828111600
       factory__0: 313799205
-      factory__45: -1358164087
-      factory__21: 1485789622
-      factory__57: 244853191
-      factory__19: 54531312
-      factory__29: -1374026248
-      factory__43: -1924823605
-      factory__46: 185244010
-      factory__28: -119322156
-      factory__37: 1535011358
-      factory__67: -417881266
-      factory__25: -1960874661
-      factory__50: -1168058921
-      factory__62: -17792350
-      factory__13: -577386158
       factory__1: -1521575698
-      factory__36: 1868245764
-      factory__42: -1602546029
-      factory__30: 306245246
-      factory__59: -1544532838
-      factory__40: -1962612265
+      factory__10: -1085018254
+      factory__11: 1924949140
+      factory__12: -976955302
+      factory__13: -577386158
       factory__14: -1576910257
-      factory__38: 639196190
-      factory__24: 2112993667
-      factory__47: -1752463088
-      factory__52: 143605950
+      factory__15: 1471390909
+      factory__16: 566186584
       factory__17: -2033693468
-      factory__4: -409138757
-      factory__9: 1938133558
-      factory__54: -188892560
+      factory__18: 2084800556
+      factory__19: 54531312
+      factory__2: -64905942
+      factory__20: 397656195
+      factory__21: 1485789622
+      factory__22: 794809745
       factory__23: 461044142
-      factory__60: 1820793202
+      factory__24: 2112993667
+      factory__25: -1960874661
+      factory__26: 453496877
+      factory__27: 2038254373
+      factory__28: -119322156
+      factory__29: -1374026248
+      factory__3: 863570376
+      factory__30: 306245246
       factory__31: -1264867014
+      factory__32: 1609095704
+      factory__33: -828111600
+      factory__34: -1990041389
+      factory__35: 1097204650
+      factory__36: 1868245764
+      factory__37: 1535011358
+      factory__38: 639196190
+      factory__39: 121657728
+      factory__4: -409138757
+      factory__40: -1962612265
+      factory__41: 2087547855
+      factory__42: -1602546029
+      factory__43: -1924823605
       factory__44: -437026446
+      factory__45: -1358164087
+      factory__46: 185244010
+      factory__47: -1752463088
       factory__48: 1415139399
+      factory__49: -477845604
+      factory__5: -1641660774
+      factory__50: -1168058921
       factory__51: -1243921656
+      factory__52: 143605950
+      factory__53: 2147387158
+      factory__54: -188892560
+      factory__55: -1980551339
       factory__56: -247817794
+      factory__57: 244853191
+      factory__58: -2060888561
+      factory__59: -1544532838
+      factory__6: 1488765487
+      factory__60: 1820793202
+      factory__61: -1924000114
+      factory__62: -17792350
+      factory__63: 1336125899
+      factory__64: 1534350949
+      factory__65: -857984917
+      factory__66: 465497956
+      factory__67: -417881266
+      factory__68: -1557406948
+      factory__69: -359723202
+      factory__7: 624828101
+      factory__8: 285558268
+      factory__9: 1938133558
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

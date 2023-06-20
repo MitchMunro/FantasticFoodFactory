@@ -14,6 +14,11 @@ public class Food : MonoBehaviour
     private Color originalColor; // the object's original color
     public int scoreValue = 5;
 
+    private void Awake()
+    {
+        GameManager.Instance.FoodSpawned.Add(this.gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +77,9 @@ public class Food : MonoBehaviour
     {
         // Loose points equal to the score value when food is destroyed.
         GameManager.Instance.UpdateScore(-scoreValue);
+
+        GameManager.Instance.FoodSpawned.RemoveAll(
+            x => x.gameObject.GetInstanceID() == this.gameObject.GetInstanceID());
    
         Destroy(this.gameObject);
     }

@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
     private float scaledSliderValue = 1;
 
     public float timerCount { get; private set; }
+    public float extraTimeCountdown { get; private set; }
+    bool isExtraTimeActive = false;
+    public int extraTimeLimit = 5;
+    private int extraTimeInt;
     public int money;
     private int moneyScoreAtRoundStart;
 
@@ -28,8 +32,11 @@ public class GameManager : MonoBehaviour
     public GameObject FoodSpawnedParent;
     public GameObject ObjectsBoughtParent;
 
+    // Food GameObjects get added to this is in Awake()
+    public List<GameObject> FoodSpawned = new List<GameObject>();
 
-    private bool finalScoreWorkDone = false;
+
+    private bool timerExpiresWorkDone = false;
 
     public GameObject[] FoodList;
     public GameObject sandwich;
@@ -158,19 +165,63 @@ public class GameManager : MonoBehaviour
 
     public void Timer()
     {
-        if (isFactoryPlaying) timerCount += Time.deltaTime;
-
-        uIManager.SetTextTimer($"Time: {timerCount.ToString("F2")} / {levelGoal.timeLimit}.00");
-
-
-        if (!finalScoreWorkDone &&
-            timerCount >= levelGoal.timeLimit)
+        if (!timerExpiresWorkDone &&
+        timerCount >= levelGoal.timeLimit)
         {
-            finalScoreWorkDone = true;
-            StopFactory();
+            timerExpiresWorkDone = true;
+            TimerExpires();
 
-            FinalScoring();
+            extraTimeInt = extraTimeLimit;
         }
+
+
+        if (isFactoryPlaying &&!isExtraTimeActive)
+        {
+            timerCount += Time.deltaTime;
+            uIManager.SetTextTimer($"Time: {timerCount.ToString("F2")} / {levelGoal.timeLimit}.00");
+        }
+        else
+        {
+            extraTimeCountdown -= Time.deltaTime;
+            HandleExtraTimeUI();
+        }
+
+
+
+    }
+
+    public void TimerExpires()
+    {
+        isExtraTimeActive = true;
+        extraTimeCountdown = extraTimeLimit;
+        StopFactory();
+    }
+
+    public void ExtraTimeExpires()
+    {
+        StopFacrotyAndReset();
+        isExtraTimeActive = false;
+    }
+
+
+    private void HandleExtraTimeUI()
+    {
+        // 1s after the timer gets to 0
+        if (extraTimeInt > -1)
+        {
+            if (extraTimeCountdown < extraTimeInt)
+            {
+                Debug.Log(extraTimeInt);
+                uIManager.DisplayCountdownNumber(extraTimeInt);
+                extraTimeInt--;
+            }
+        }
+        else
+        {
+            ExtraTimeExpires();
+        }
+
+
     }
 
     private void FinalScoring()
@@ -205,7 +256,7 @@ public class GameManager : MonoBehaviour
         //// Saves money score at round start so that it can be reset to this value later.
         //moneyScoreAtRoundStart = moneyScore;
 
-        finalScoreWorkDone = false;
+        timerExpiresWorkDone = false;
 
         foreach (Transform childTransform in FoodSpawnedParent.transform)
         {
@@ -273,6 +324,8 @@ public class GameManager : MonoBehaviour
         uIManager.ButtonChangedToPlay();
 
     }
+
+
 
 }
 

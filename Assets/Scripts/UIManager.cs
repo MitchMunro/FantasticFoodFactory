@@ -46,6 +46,8 @@ public class UIManager : MonoBehaviour
         moneyText = moneyTextGameObj.GetComponent<TextMeshProUGUI>();
         moneyGoalText = moneyGoalTextGameObj.GetComponent<TextMeshProUGUI>();
         timeText = timeTextGameObj.GetComponent<TextMeshProUGUI>();
+
+        startFontSize = countdownText.fontSize;
     }
 
     private void Start()
@@ -135,5 +137,48 @@ public class UIManager : MonoBehaviour
         if (tutorialCompletePanelObj != null)
             tutorialCompletePanelObj.SetActive(true);
     }
+
+
+    public TextMeshProUGUI countdownText;
+    public float fadeDuration = 1f;
+    public float scaleSpeed = 1f;
+    private float startFontSize;
+
+    private Coroutine numberFadeCoroutine;
+
+    public void DisplayCountdownNumber(int num)
+    {
+        if (numberFadeCoroutine != null) StopCoroutine(numberFadeCoroutine);
+
+        numberFadeCoroutine = StartCoroutine(NumberFadeCoroutine(num));
+    }
+
+    private IEnumerator NumberFadeCoroutine(int num)
+    {
+        //If num == -1 then Coroutine ends
+        if (num == -1)
+        {
+            StopCoroutine(numberFadeCoroutine);
+        }
+
+        countdownText.text = num.ToString();
+
+        countdownText.fontSize = startFontSize;
+        countdownText.color = new Color(countdownText.color.r, countdownText.color.g, countdownText.color.b, 1f);
+
+        while (countdownText.color.a > 0)
+        {
+            countdownText.fontSize += Time.deltaTime * scaleSpeed;
+            countdownText.color = new Color(countdownText.color.r, countdownText.color.g, countdownText.color.b, countdownText.color.a - (Time.deltaTime / fadeDuration));
+
+            yield return null;
+        }
+
+        if (num == 0)
+        {
+            countdownText.text = "";
+        }
+    }
+
 
 }
