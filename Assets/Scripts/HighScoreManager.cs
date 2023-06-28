@@ -42,6 +42,12 @@ public class HighScoreManager : MonoBehaviour
     public int[] HSLevel5 { get; private set; } = { 0, 0, 0, 0};
 
 
+    private void Awake()
+    {
+        LoadHS();
+    }
+
+
     public void LoadHS()
     {
         LoadLevelHS(HSKeyLevel1, HSLevel1);
@@ -85,9 +91,9 @@ public class HighScoreManager : MonoBehaviour
 
     private void SaveLevelHS(int level, int[] scoreList, int newScore)
     {
-        if (newScore > scoreList[scoreList.Length])
+        if (newScore > scoreList[scoreList.Length -1])
         {
-            scoreList[scoreList.Length] = newScore;
+            scoreList[scoreList.Length -1] = newScore;
 
             // Sort the high scores array in descending order
             Array.Sort(scoreList);

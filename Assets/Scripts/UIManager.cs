@@ -35,9 +35,9 @@ public class UIManager : MonoBehaviour
     private Slider speedSlider;
 
     public GameObject HighScorePanel;
-    private Image Star1;
-    private Image Star2;
-    private Image Star3;
+    private RawImage Star1;
+    private RawImage Star2;
+    private RawImage Star3;
     private TextMeshProUGUI StarScore1Text;
     private TextMeshProUGUI StarScore2Text;
     private TextMeshProUGUI StarScore3Text;
@@ -52,8 +52,9 @@ public class UIManager : MonoBehaviour
     private float HSPanelYAxisHidden = 2.7f;
     private bool IsHSPanelExtended = false;
 
-    private void Awake()
+    public ParticleSystem scoreBurst1;
 
+    private void Awake()
     {
         speedSlider = speedSliderGameObj.GetComponent<Slider>();
         playPauseButton = playPauseButtonGameObj.GetComponent<Button>();
@@ -71,11 +72,11 @@ public class UIManager : MonoBehaviour
         if (countdownText != null) startFontSize = countdownText.fontSize;
 
         Star1 = HighScorePanel.transform.Find("StarPanel")
-            .gameObject.transform.Find("Star1").GetComponent<Image>();
+            .gameObject.transform.Find("Star1").GetComponent<RawImage>();
         Star2 = HighScorePanel.transform.Find("StarPanel")
-            .gameObject.transform.Find("Star2").GetComponent<Image>();
+            .gameObject.transform.Find("Star2").GetComponent<RawImage>();
         Star3 = HighScorePanel.transform.Find("StarPanel")
-            .gameObject.transform.Find("Star3").GetComponent<Image>();
+            .gameObject.transform.Find("Star3").GetComponent<RawImage>();
 
         StarScore1Text = HighScorePanel.transform.Find("StarPanel")
             .gameObject.transform.Find("StarScore1").GetComponent<TextMeshProUGUI>();
@@ -119,6 +120,9 @@ public class UIManager : MonoBehaviour
     {
         statusPanel.SetActive(false);
 
+        CloseHighScorePanel();
+
+        //PlayScoreBurst1();
 
         if (GameManager.Instance.buttonState == ButtonState.Pause)
         {
@@ -267,7 +271,7 @@ public class UIManager : MonoBehaviour
 
     public void SetLastScore(int score)
     {
-        LastScoreText.text = $"Last Score: {score}";
+        LastScoreText.text = $"Last Score: ${score}";
     }
 
     public void SetStarScores(int star1Score, int star2Score, int star3Score)
@@ -295,6 +299,26 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void OpenHighScorePanel()
+    {
+        if (!IsHSPanelExtended)
+        {
+            HSPanelInitialPosition = HSPanelRect.anchoredPosition;
+            StartCoroutine(MovePanelCoroutine(HSPanelYAxisExtended));
+            IsHSPanelExtended = true;
+        }
+    }
+
+    public void CloseHighScorePanel()
+    {
+        if (IsHSPanelExtended)
+        {
+            HSPanelInitialPosition = HSPanelRect.anchoredPosition;
+            StartCoroutine(MovePanelCoroutine(HSPanelYAxisHidden));
+            IsHSPanelExtended = false;
+        }
+    }
+
     private IEnumerator MovePanelCoroutine(float targetY)
     {
         isMoving = true;
@@ -317,4 +341,12 @@ public class UIManager : MonoBehaviour
         isMoving = false;
     }
 
+    public void PlayScoreBurst1()
+    {
+        Debug.Log("test");
+
+        if (scoreBurst1 == null) return;
+
+        scoreBurst1.Play();
+    }
 }

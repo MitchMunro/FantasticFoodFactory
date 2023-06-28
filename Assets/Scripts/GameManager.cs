@@ -66,16 +66,16 @@ public class GameManager : MonoBehaviour
     {
         uIManager.SetTextMoneyGoal($"Goal: $ {levelGoal.Star1Goal}");
         uIManager.SetTextMoney("Money: $ ");
-        uIManager.SetTextTimer($"Time: ");
+        uIManager.SetTextTimer($"0.00/{levelGoal.timeLimit}.00");
         UpdateScore(levelGoal.startingMoney);
 
         scaledSliderValue = uIManager.SpeedSliderValue();
 
-        
+        SetHSPanel();
 
     }
 
-    private void ResetHSPanel()
+    private void SetHSPanel()
     {
         //Make all level Goal stars black
         uIManager.BlackenStar(1);
@@ -283,7 +283,7 @@ public class GameManager : MonoBehaviour
         if (gameState == GameState.FactoryPlayingTimer)
         {
             timerCount += Time.deltaTime;
-            uIManager.SetTextTimer($"Time: {timerCount.ToString("F2")} / {levelGoal.timeLimit}.00");
+            uIManager.SetTextTimer($"{timerCount.ToString("F2")}/{levelGoal.timeLimit}.00");
         }
         else if (gameState == GameState.FactoryPlayingExtraTime)
         {
@@ -299,15 +299,16 @@ public class GameManager : MonoBehaviour
         gameState = GameState.FactoryPlayingExtraTime;
     }
 
+    
 
     private void HandleExtraTime()
     {
         // 1s after the timer gets to 0
-        if (extraTimeInt > -1)
+        if (extraTimeInt > -1 && FoodSpawnedParent.transform.childCount > 0)
         {
             if (extraTimeCountdown < extraTimeInt)
             {
-                Debug.Log(extraTimeInt);
+                //Debug.Log(extraTimeInt);
 
                 // Only displays the extra time count down if it is lower than the extraTimeVisibleFrom variable.
                 if (extraTimeInt <= extraTimeVisibleFrom)
@@ -320,17 +321,24 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            FinalScoring();
             StopFacrotyAndReset();
         }
     }
 
     private void FinalScoring()
     {
+        gameState = GameState.Building;
+
         buttonState = ButtonState.Replay;
         uIManager.ButtonChangedToReplay();
 
         highScoreManager.SaveHS(levelGoal.LevelNumber, money);
         RetrieveHighScores(levelGoal.LevelNumber);
+        uIManager.SetLastScore(money);
+        CheckStars();
+
+        uIManager.OpenHighScorePanel();
 
         if (money >= levelGoal.Star1Goal)
         {
