@@ -27,7 +27,7 @@ public class EvilRat : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.isFactoryPlaying)
+        if (GameManager.Instance.isFactoryPlayingAtAll())
         {
             transform.Translate(movementDirection * moveSpeed * Time.deltaTime);
 

@@ -54,7 +54,7 @@ public class Spawner : MonoBehaviour
             if (colorChangingSprite == null) return;
 
             // Toggle the sprite color between red and green when clicked
-            if (GameManager.Instance.isFactoryPlaying)
+            if (GameManager.Instance.isFactoryPlayingAtAll())
             {
                 colorChangingSprite.color = Color.green;
             }
@@ -105,7 +105,7 @@ public class Spawner : MonoBehaviour
 
     public IEnumerator SpawnFood()
     {
-        if (GameManager.Instance.isFactoryPlaying) Instantiate(
+        if (GameManager.Instance.gameState == GameState.FactoryPlayingTimer) Instantiate(
             foodToSpawn,
             this.gameObject.transform.position,
             foodToSpawn.transform.rotation,

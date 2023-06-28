@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public bool isMainMenu = false;
     public UIManager uIManager;
+    public HighScoreManager highScoreManager;
 
     public float sliderMin = 0.5f;
     public float sliderMax = 4f;
@@ -17,8 +18,8 @@ public class GameManager : MonoBehaviour
 
     public float timerCount { get; private set; }
     public float extraTimeCountdown { get; private set; }
-    bool isExtraTimeActive = false;
-    public int extraTimeLimit = 5;
+    public int extraTimeLimit = 10;
+    public int extraTimeVisibleFrom = 5;
     private int extraTimeInt;
     public int money;
     private int moneyScoreAtRoundStart;
@@ -26,8 +27,8 @@ public class GameManager : MonoBehaviour
     public LevelGoal levelGoal;
 
     //This is used to check if the play button has been clicked, and therefore if the factory is playing or not
-    public bool isFactoryPlaying { get; private set; }
     public ButtonState buttonState { get; private set; } = ButtonState.Play;
+    public GameState gameState { get; private set; } = GameState.Building;
 
     public GameObject FoodSpawnedParent;
     public GameObject ObjectsBoughtParent;
@@ -63,14 +64,109 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        uIManager.SetTextMoneyGoal($"Goal: $ {levelGoal.moneyGoal}");
+        uIManager.SetTextMoneyGoal($"Goal: $ {levelGoal.Star1Goal}");
         uIManager.SetTextMoney("Money: $ ");
         uIManager.SetTextTimer($"Time: ");
         UpdateScore(levelGoal.startingMoney);
 
         scaledSliderValue = uIManager.SpeedSliderValue();
 
+        
+
     }
+
+    private void ResetHSPanel()
+    {
+        //Make all level Goal stars black
+        uIManager.BlackenStar(1);
+        uIManager.BlackenStar(2);
+        uIManager.BlackenStar(3);
+
+        uIManager.SetStarScores(levelGoal.Star1Goal, levelGoal.Star2Goal,
+            levelGoal.Star3Goal);
+
+        //Set High scores
+        RetrieveHighScores(levelGoal.LevelNumber);
+
+        //Set Last score to 0
+        uIManager.SetLastScore(0);
+
+        CheckStars();
+
+
+    }
+
+    private void CheckStars()
+    {
+        int[] levelHS = highScoreManager.GetLevelHighScores(levelGoal.LevelNumber);
+
+        if (levelHS[0] >= levelGoal.Star1Goal)
+        {
+            uIManager.HighlightStar(1);
+        }
+
+        if (levelHS[0] >= levelGoal.Star2Goal)
+        {
+            uIManager.HighlightStar(2);
+        }
+
+        if (levelHS[0] >= levelGoal.Star3Goal)
+        {
+            uIManager.HighlightStar(3);
+        }
+    }
+
+    private void RetrieveHighScores(int levelNumber)
+    {
+        switch (levelNumber)
+        {
+            case 1:
+                uIManager.SetHighScores(
+                    highScoreManager.HSLevel1[0],
+                    highScoreManager.HSLevel1[1],
+                    highScoreManager.HSLevel1[2],
+                    highScoreManager.HSLevel1[3]);
+                break;
+
+            case 2:
+                uIManager.SetHighScores(
+                    highScoreManager.HSLevel2[0],
+                    highScoreManager.HSLevel2[1],
+                    highScoreManager.HSLevel2[2],
+                    highScoreManager.HSLevel2[3]);
+                break;
+
+            case 3:
+                uIManager.SetHighScores(
+                    highScoreManager.HSLevel3[0],
+                    highScoreManager.HSLevel3[1],
+                    highScoreManager.HSLevel3[2],
+                    highScoreManager.HSLevel3[3]);
+                break;
+
+            case 4:
+                uIManager.SetHighScores(
+                    highScoreManager.HSLevel4[0],
+                    highScoreManager.HSLevel4[1],
+                    highScoreManager.HSLevel4[2],
+                    highScoreManager.HSLevel4[3]);
+                break;
+
+            case 5:
+                uIManager.SetHighScores(
+                    highScoreManager.HSLevel5[0],
+                    highScoreManager.HSLevel5[1],
+                    highScoreManager.HSLevel5[2],
+                    highScoreManager.HSLevel5[3]);
+                break;
+
+            default:
+                Debug.Log("Incorrect Level number given.");
+                break;
+
+        }
+    }
+
 
     void Update()
     {
@@ -80,7 +176,11 @@ public class GameManager : MonoBehaviour
 
     private void SelectAndMoveItems()
     {
-        if (GameManager.Instance.isFactoryPlaying) return;
+        if (isFactoryPlayingAtAll())
+        {
+            DeselectObject();
+            return;
+        }
 
         if (Input.GetMouseButtonDown(0)) // Left mouse button clicked
         {
@@ -94,18 +194,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                // Deselect the object if something else is clicked
-                if (selectedObject != null)
-                {
-                    var comp = selectedObject.GetComponent<FactoryObject>();
-
-                    if (comp != null)
-                    {
-                        comp.HighlightDeactivate();
-                    }
-                } 
-                selectedObject = null;
-
+                DeselectObject();
             }
         }
 
@@ -151,7 +240,6 @@ public class GameManager : MonoBehaviour
             selectedObject.transform.Rotate(-Vector3.forward * rotateSpeed * Time.deltaTime);
         }
 
-
         if (Input.GetKey(KeyCode.D))
         {
             if (component != null)
@@ -163,48 +251,56 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void DeselectObject()
+    {
+        // Deselect the object if something else is clicked
+        if (selectedObject != null)
+        {
+            var comp = selectedObject.GetComponent<FactoryObject>();
+
+            if (comp != null)
+            {
+                comp.HighlightDeactivate();
+            }
+        }
+        selectedObject = null;
+    }
+
     public void Timer()
     {
         if (!timerExpiresWorkDone &&
         timerCount >= levelGoal.timeLimit)
         {
             timerExpiresWorkDone = true;
+
+            gameState = GameState.FactoryPlayingExtraTime;
+
             TimerExpires();
 
             extraTimeInt = extraTimeLimit;
         }
 
-
-        if (isFactoryPlaying &&!isExtraTimeActive)
+        if (gameState == GameState.FactoryPlayingTimer)
         {
             timerCount += Time.deltaTime;
             uIManager.SetTextTimer($"Time: {timerCount.ToString("F2")} / {levelGoal.timeLimit}.00");
         }
-        else
+        else if (gameState == GameState.FactoryPlayingExtraTime)
         {
             extraTimeCountdown -= Time.deltaTime;
-            HandleExtraTimeUI();
+            HandleExtraTime();
         }
 
-
-
     }
 
-    public void TimerExpires()
+    private void TimerExpires()
     {
-        isExtraTimeActive = true;
         extraTimeCountdown = extraTimeLimit;
-        StopFactory();
-    }
-
-    public void ExtraTimeExpires()
-    {
-        StopFacrotyAndReset();
-        isExtraTimeActive = false;
+        gameState = GameState.FactoryPlayingExtraTime;
     }
 
 
-    private void HandleExtraTimeUI()
+    private void HandleExtraTime()
     {
         // 1s after the timer gets to 0
         if (extraTimeInt > -1)
@@ -212,16 +308,20 @@ public class GameManager : MonoBehaviour
             if (extraTimeCountdown < extraTimeInt)
             {
                 Debug.Log(extraTimeInt);
-                uIManager.DisplayCountdownNumber(extraTimeInt);
+
+                // Only displays the extra time count down if it is lower than the extraTimeVisibleFrom variable.
+                if (extraTimeInt <= extraTimeVisibleFrom)
+                {
+                    uIManager.DisplayCountdownNumber(extraTimeInt);
+
+                }
                 extraTimeInt--;
             }
         }
         else
         {
-            ExtraTimeExpires();
+            StopFacrotyAndReset();
         }
-
-
     }
 
     private void FinalScoring()
@@ -229,7 +329,10 @@ public class GameManager : MonoBehaviour
         buttonState = ButtonState.Replay;
         uIManager.ButtonChangedToReplay();
 
-        if (money >= levelGoal.moneyGoal)
+        highScoreManager.SaveHS(levelGoal.LevelNumber, money);
+        RetrieveHighScores(levelGoal.LevelNumber);
+
+        if (money >= levelGoal.Star1Goal)
         {
             uIManager.UpdateStatusPanelText("Success!");
             uIManager.statusPanel.SetActive(true);
@@ -263,22 +366,17 @@ public class GameManager : MonoBehaviour
             Destroy(childTransform.gameObject);
         }
 
-        isFactoryPlaying = true;
+        gameState = GameState.FactoryPlayingTimer;
         timerCount = 0f;
-
-    }
-
-    public void StopFactory()
-    {
-        buttonState = ButtonState.Play;
-
-        isFactoryPlaying = false;
 
     }
 
     public void StopFacrotyAndReset()
     {
-        StopFactory();
+        buttonState = ButtonState.Play;
+        uIManager.ButtonChangedToPlay();
+
+        gameState = GameState.Building;
 
         ResetScore();
 
@@ -324,8 +422,17 @@ public class GameManager : MonoBehaviour
         uIManager.ButtonChangedToPlay();
 
     }
-
-
+    /// <summary>
+    /// Returns true if Gamestate == FactoryPlayingTimer, or FactoryPlayingExtraTime.
+    /// </summary>
+    /// <returns></returns>
+    public bool isFactoryPlayingAtAll()
+    {
+        if (gameState == GameState.FactoryPlayingTimer ||
+            gameState == GameState.FactoryPlayingExtraTime)
+            return true;
+        else return false;
+    }
 
 }
 
@@ -335,4 +442,12 @@ public enum ButtonState
     Pause,
     Replay,
     Cross
+}
+
+public enum GameState
+{
+    FactoryPlayingTimer,
+    FactoryPlayingExtraTime,
+    Building,
+
 }

@@ -15,7 +15,7 @@ public class BuyButton : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (!GameManager.Instance.isFactoryPlaying &&
+        if (!GameManager.Instance.isFactoryPlayingAtAll() &&
             GameManager.Instance.money >= cost)
         {
             GameManager.Instance.UpdateScore(-cost);

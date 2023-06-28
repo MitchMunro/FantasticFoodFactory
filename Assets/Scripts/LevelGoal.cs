@@ -6,7 +6,10 @@ using System;
 [Serializable]
 public class LevelGoal
 {
-    public int moneyGoal;
+    public int LevelNumber;
+    public int Star1Goal;
+    public int Star2Goal;
+    public int Star3Goal;
     public int startingMoney;
     public int timeLimit;
 

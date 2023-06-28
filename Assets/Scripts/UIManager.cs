@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEngine.GraphicsBuffer;
 
 public class UIManager : MonoBehaviour
 {
@@ -33,6 +34,24 @@ public class UIManager : MonoBehaviour
     public GameObject speedSliderGameObj;
     private Slider speedSlider;
 
+    public GameObject HighScorePanel;
+    private Image Star1;
+    private Image Star2;
+    private Image Star3;
+    private TextMeshProUGUI StarScore1Text;
+    private TextMeshProUGUI StarScore2Text;
+    private TextMeshProUGUI StarScore3Text;
+    private TextMeshProUGUI LastScoreText;
+    private TextMeshProUGUI HighScoresText;
+
+    private RectTransform HSPanelRect;
+    public float HSPanelMoveDuration = 0.5f;
+    private Vector2 HSPanelInitialPosition;
+    private bool isMoving = false;
+    private float HSPanelYAxisExtended = -95.8f;
+    private float HSPanelYAxisHidden = 2.7f;
+    private bool IsHSPanelExtended = false;
+
     private void Awake()
 
     {
@@ -47,7 +66,28 @@ public class UIManager : MonoBehaviour
         moneyGoalText = moneyGoalTextGameObj.GetComponent<TextMeshProUGUI>();
         timeText = timeTextGameObj.GetComponent<TextMeshProUGUI>();
 
-        startFontSize = countdownText.fontSize;
+        HSPanelRect = HighScorePanel.GetComponent<RectTransform>();
+
+        if (countdownText != null) startFontSize = countdownText.fontSize;
+
+        Star1 = HighScorePanel.transform.Find("StarPanel")
+            .gameObject.transform.Find("Star1").GetComponent<Image>();
+        Star2 = HighScorePanel.transform.Find("StarPanel")
+            .gameObject.transform.Find("Star2").GetComponent<Image>();
+        Star3 = HighScorePanel.transform.Find("StarPanel")
+            .gameObject.transform.Find("Star3").GetComponent<Image>();
+
+        StarScore1Text = HighScorePanel.transform.Find("StarPanel")
+            .gameObject.transform.Find("StarScore1").GetComponent<TextMeshProUGUI>();
+        StarScore2Text = HighScorePanel.transform.Find("StarPanel")
+            .gameObject.transform.Find("StarScore2").GetComponent<TextMeshProUGUI>();
+        StarScore3Text = HighScorePanel.transform.Find("StarPanel")
+            .gameObject.transform.Find("StarScore3").GetComponent<TextMeshProUGUI>();
+
+        HighScoresText = HighScorePanel.transform.Find("HighScoresText")
+            .GetComponent<TextMeshProUGUI>();
+        LastScoreText = HighScorePanel.transform.Find("LastScoreText")
+            .GetComponent<TextMeshProUGUI>();
     }
 
     private void Start()
@@ -55,6 +95,7 @@ public class UIManager : MonoBehaviour
     {
         if (TutorialUI != null &&
             !GameManager.Instance.isMainMenu) TutorialUI.SetActive(true);
+        
     }
 
 
@@ -180,5 +221,100 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
+    public void HighlightStar(int starNumber)
+    {
+        switch (starNumber)
+        {
+            case 1:
+                Star1.color = Color.white;
+                break;
+            case 2:
+                Star2.color = Color.white;
+                break;
+            case 3:
+                Star3.color = Color.white;
+                break;
+            default:
+                Debug.Log("Invalid star number chosen.");
+                break;
+        }
+    }
+
+    public void BlackenStar(int starNumber)
+    {
+        switch (starNumber)
+        {
+            case 1:
+                Star1.color = Color.black;
+                break;
+            case 2:
+                Star2.color = Color.black;
+                break;
+            case 3:
+                Star3.color = Color.black;
+                break;
+            default:
+                Debug.Log("Invalid star number chosen.");
+                break;
+        }
+    }
+
+    public void SetHighScores(int score1, int score2, int score3, int score4)
+    {
+        HighScoresText.text = $"1.${score1}     2.${score2}     3.${score3}     4.${score4}";
+    }
+
+    public void SetLastScore(int score)
+    {
+        LastScoreText.text = $"Last Score: {score}";
+    }
+
+    public void SetStarScores(int star1Score, int star2Score, int star3Score)
+    {
+        StarScore1Text.text = $"${star1Score}";
+        StarScore2Text.text = $"${star2Score}";
+        StarScore3Text.text = $"${star3Score}";
+    }
+
+    public void ToggleHighScorePanel()
+    {
+        if (isMoving) return;
+
+        if (IsHSPanelExtended)
+        {
+            HSPanelInitialPosition = HSPanelRect.anchoredPosition;
+            StartCoroutine(MovePanelCoroutine(HSPanelYAxisHidden));
+            IsHSPanelExtended = false;
+        }
+        else
+        {
+            HSPanelInitialPosition = HSPanelRect.anchoredPosition;
+            StartCoroutine(MovePanelCoroutine(HSPanelYAxisExtended));
+            IsHSPanelExtended = true;
+        }
+    }
+
+    private IEnumerator MovePanelCoroutine(float targetY)
+    {
+        isMoving = true;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < HSPanelMoveDuration)
+        {
+            float t = elapsedTime / HSPanelMoveDuration;
+            float easedT = Mathf.SmoothStep(0f, 1f, t); // Apply easing function
+
+            Vector2 newPosition = new Vector2(HSPanelInitialPosition.x, Mathf.Lerp(HSPanelInitialPosition.y, targetY, easedT));
+            HSPanelRect.anchoredPosition = newPosition;
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        HSPanelRect.anchoredPosition = new Vector2(HSPanelInitialPosition.x, targetY);
+        isMoving = false;
+    }
 
 }
