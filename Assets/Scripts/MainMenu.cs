@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
     public void Level2Button()
     {
-        SceneManager.LoadScene("level2last");
+        SceneManager.LoadScene("Level 2 - Burger Time");
 
     }
 
@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
 
     public void Level4Button()
     {
-        SceneManager.LoadScene("Level 4");
+        SceneManager.LoadScene("Level 4 - Definitely Not Burger Time");
 
     }
 

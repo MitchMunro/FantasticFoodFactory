@@ -67,28 +67,38 @@ public class UIManager : MonoBehaviour
         moneyGoalText = moneyGoalTextGameObj.GetComponent<TextMeshProUGUI>();
         timeText = timeTextGameObj.GetComponent<TextMeshProUGUI>();
 
-        HSPanelRect = HighScorePanel.GetComponent<RectTransform>();
+        if (HighScorePanel != null)
+        {
+            HSPanelRect = HighScorePanel.GetComponent<RectTransform>();
+
+            Star1 = HighScorePanel.transform.Find("StarPanel")
+            .gameObject.transform.Find("Star1").GetComponent<RawImage>();
+            Star2 = HighScorePanel.transform.Find("StarPanel")
+                .gameObject.transform.Find("Star2").GetComponent<RawImage>();
+            Star3 = HighScorePanel.transform.Find("StarPanel")
+                .gameObject.transform.Find("Star3").GetComponent<RawImage>();
+
+            StarScore1Text = HighScorePanel.transform.Find("StarPanel")
+                .gameObject.transform.Find("StarScore1").GetComponent<TextMeshProUGUI>();
+            StarScore2Text = HighScorePanel.transform.Find("StarPanel")
+                .gameObject.transform.Find("StarScore2").GetComponent<TextMeshProUGUI>();
+            StarScore3Text = HighScorePanel.transform.Find("StarPanel")
+                .gameObject.transform.Find("StarScore3").GetComponent<TextMeshProUGUI>();
+        }
 
         if (countdownText != null) startFontSize = countdownText.fontSize;
 
-        Star1 = HighScorePanel.transform.Find("StarPanel")
-            .gameObject.transform.Find("Star1").GetComponent<RawImage>();
-        Star2 = HighScorePanel.transform.Find("StarPanel")
-            .gameObject.transform.Find("Star2").GetComponent<RawImage>();
-        Star3 = HighScorePanel.transform.Find("StarPanel")
-            .gameObject.transform.Find("Star3").GetComponent<RawImage>();
-
-        StarScore1Text = HighScorePanel.transform.Find("StarPanel")
-            .gameObject.transform.Find("StarScore1").GetComponent<TextMeshProUGUI>();
-        StarScore2Text = HighScorePanel.transform.Find("StarPanel")
-            .gameObject.transform.Find("StarScore2").GetComponent<TextMeshProUGUI>();
-        StarScore3Text = HighScorePanel.transform.Find("StarPanel")
-            .gameObject.transform.Find("StarScore3").GetComponent<TextMeshProUGUI>();
-
-        HighScoresText = HighScorePanel.transform.Find("HighScoresText")
+        if (HighScoresText != null)
+        {
+            HighScoresText = HighScorePanel.transform.Find("HighScoresText")
             .GetComponent<TextMeshProUGUI>();
-        LastScoreText = HighScorePanel.transform.Find("LastScoreText")
+        }
+
+        if (LastScoreText != null)
+        {
+            LastScoreText = HighScorePanel.transform.Find("LastScoreText")
             .GetComponent<TextMeshProUGUI>();
+        }
     }
 
     private void Start()
@@ -247,6 +257,11 @@ public class UIManager : MonoBehaviour
 
     public void BlackenStar(int starNumber)
     {
+        if (Star1 == null ||
+            Star2 == null ||
+            Star3 == null)
+            return;
+
         switch (starNumber)
         {
             case 1:
@@ -266,19 +281,28 @@ public class UIManager : MonoBehaviour
 
     public void SetHighScores(int score1, int score2, int score3, int score4)
     {
+        if (HighScoresText == null) return;
+
         HighScoresText.text = $"1.${score1}     2.${score2}     3.${score3}     4.${score4}";
     }
 
     public void SetLastScore(int score)
     {
+        if (LastScoreText == null) return;
+
         LastScoreText.text = $"Last Score: ${score}";
     }
 
     public void SetStarScores(int star1Score, int star2Score, int star3Score)
     {
+        if (StarScore1Text == null ||
+            StarScore1Text == null ||
+            StarScore1Text == null)
+            return;
+
         StarScore1Text.text = $"${star1Score}";
-        StarScore2Text.text = $"${star2Score}";
-        StarScore3Text.text = $"${star3Score}";
+        StarScore1Text.text = $"${star2Score}";
+        StarScore1Text.text = $"${star3Score}";
     }
 
     public void ToggleHighScorePanel()

@@ -77,6 +77,8 @@ public class GameManager : MonoBehaviour
 
     private void SetHSPanel()
     {
+        if (highScoreManager == null) return;
+
         //Make all level Goal stars black
         uIManager.BlackenStar(1);
         uIManager.BlackenStar(2);

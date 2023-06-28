@@ -11983,6 +11983,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -19919,7 +19920,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069167873}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d71d6499d51574cf89a8b099940b655b, type: 3}
   m_Name: 
@@ -19937,6 +19938,12 @@ MonoBehaviour:
   tutorialMainPanelParent: {fileID: 2035919196}
   tutorialCompletePanelObj: {fileID: 1783686414}
   speedSliderGameObj: {fileID: 1110278097}
+  HighScorePanel: {fileID: 0}
+  HSPanelMoveDuration: 0.5
+  scoreBurst1: {fileID: 0}
+  countdownText: {fileID: 0}
+  fadeDuration: 1
+  scaleSpeed: 1
 --- !u!114 &2069167875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19951,15 +19958,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMainMenu: 1
   uIManager: {fileID: 2069167874}
+  highScoreManager: {fileID: 0}
   sliderMin: 0.5
   sliderMax: 4
+  extraTimeLimit: 10
+  extraTimeVisibleFrom: 5
   money: 0
   levelGoal:
-    moneyGoal: 110
+    LevelNumber: 0
+    Star1Goal: 0
+    Star2Goal: 0
+    Star3Goal: 0
     startingMoney: 100
     timeLimit: 10
   FoodSpawnedParent: {fileID: 1688368592}
   ObjectsBoughtParent: {fileID: 2065239153}
+  FoodSpawned: []
   FoodList: []
   sandwich: {fileID: 0}
 --- !u!4 &2069167876

@@ -12,21 +12,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1 - Intro.unity
     guid: 6dbe918cd70d847889f5a674a1ffe4d5
   - enabled: 1
+    path: Assets/Scenes/Level 2 - Burger Time.unity
+    guid: 40fed2030c6a84d138dfd6e2d91c00c2
+  - enabled: 1
+    path: Assets/Scenes/Level 3 - Meatball Pinball - Mitch.unity
+    guid: ae1f8940940f343f096ebf6ede3bd5cb
+  - enabled: 1
+    path: Assets/Scenes/Level 4 - Definitely Not Burger Time.unity
+    guid: 2539fe1931e7a47d58587bee1a54d236
+  - enabled: 1
     path: Assets/Scenes/Tutorial Level_New.unity
     guid: 9c26503f6814a4a12b96a351d47e4385
   - enabled: 1
     path: Assets/Scenes/Tutorial Level 2_New.unity
     guid: 5cdb7920c62f3453ca0436cdf2fe1028
-  - enabled: 1
-    path: Assets/Scenes/Level 3 - Meatball Pinball - Mitch.unity
-    guid: ae1f8940940f343f096ebf6ede3bd5cb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/QuickLevel_1.unity
     guid: be8d2b76d6e6c42cc9cf2f99c88ee3c0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 4.unity
     guid: fe95a294b33cb469e8da3941c606b379
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/level2last.unity
     guid: e975c6a613b424fccb9e11ab0c136cc8
   - enabled: 1
