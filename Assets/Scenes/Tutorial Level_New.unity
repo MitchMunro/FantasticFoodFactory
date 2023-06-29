@@ -19183,6 +19183,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -19369,8 +19370,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Money: $'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1b026359f5fea477298bfaac7f4d34a1, type: 2}
+  m_sharedMaterial: {fileID: -769755515049254995, guid: 1b026359f5fea477298bfaac7f4d34a1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19469,6 +19470,12 @@ MonoBehaviour:
   tutorialMainPanelParent: {fileID: 2460328776613593272}
   tutorialCompletePanelObj: {fileID: 2460328776652879277}
   speedSliderGameObj: {fileID: 1817261517}
+  HighScorePanel: {fileID: 0}
+  HSPanelMoveDuration: 0.5
+  scoreBurst1: {fileID: 0}
+  countdownText: {fileID: 0}
+  fadeDuration: 1
+  scaleSpeed: 1
 --- !u!1 &2460328776887372768
 GameObject:
   m_ObjectHideFlags: 0
@@ -19779,8 +19786,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Time:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bcb3682c6d6ff446b92653619727f7bb, type: 2}
+  m_sharedMaterial: {fileID: 3247467357960386659, guid: bcb3682c6d6ff446b92653619727f7bb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19886,8 +19893,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Goal: $'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1b026359f5fea477298bfaac7f4d34a1, type: 2}
+  m_sharedMaterial: {fileID: -769755515049254995, guid: 1b026359f5fea477298bfaac7f4d34a1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20262,16 +20269,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMainMenu: 0
+  isTutorialLevel1: 1
   uIManager: {fileID: 2460328776682444423}
+  highScoreManager: {fileID: 0}
   sliderMin: 0.5
   sliderMax: 4
+  extraTimeLimit: 10
+  extraTimeVisibleFrom: 5
   money: 0
   levelGoal:
-    moneyGoal: 110
+    LevelNumber: -1
+    Star1Goal: 150
+    Star2Goal: 160
+    Star3Goal: 170
     startingMoney: 100
     timeLimit: 10
   FoodSpawnedParent: {fileID: 2460328777823326181}
   ObjectsBoughtParent: {fileID: 2460328776004414984}
+  FoodSpawned: []
   FoodList:
   - {fileID: 5649999932321951908, guid: 7b441ea2e2f7544a0a93dcd08169daa7, type: 3}
   - {fileID: 5202533426543674452, guid: 82d55d35dd79c4ecda6dde49c721da58, type: 3}

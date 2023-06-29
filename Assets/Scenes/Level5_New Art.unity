@@ -31844,6 +31844,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2460328776004414984
 GameObject:
   m_ObjectHideFlags: 0
@@ -31984,6 +31985,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -32231,6 +32233,12 @@ MonoBehaviour:
   tutorialMainPanelParent: {fileID: 0}
   tutorialCompletePanelObj: {fileID: 0}
   speedSliderGameObj: {fileID: 1817261517}
+  HighScorePanel: {fileID: 0}
+  HSPanelMoveDuration: 0.5
+  scoreBurst1: {fileID: 0}
+  countdownText: {fileID: 0}
+  fadeDuration: 1
+  scaleSpeed: 1
 --- !u!1 &2460328777078572049
 GameObject:
   m_ObjectHideFlags: 0
@@ -32993,16 +33001,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMainMenu: 0
+  isTutorialLevel1: 0
   uIManager: {fileID: 2460328776682444423}
+  highScoreManager: {fileID: 0}
   sliderMin: 0.5
   sliderMax: 4
+  extraTimeLimit: 10
+  extraTimeVisibleFrom: 5
   money: 0
   levelGoal:
-    moneyGoal: 999
+    LevelNumber: 0
+    Star1Goal: 0
+    Star2Goal: 0
+    Star3Goal: 0
     startingMoney: 750
     timeLimit: 60
   FoodSpawnedParent: {fileID: 2460328777823326181}
   ObjectsBoughtParent: {fileID: 2460328776004414984}
+  FoodSpawned: []
   FoodList:
   - {fileID: 5649999932321951908, guid: cc154b44e56c8f24daf28127023ed539, type: 3}
   - {fileID: 5649999932321951908, guid: eb5a9799b79a53c439e869a2e13670e0, type: 3}
@@ -33049,7 +33065,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6326322853941651952}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6c188381a8d384044824971d705aa96f, type: 3}

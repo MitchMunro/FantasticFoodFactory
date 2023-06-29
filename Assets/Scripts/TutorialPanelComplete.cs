@@ -60,7 +60,7 @@ public class TutorialPanelComplete : MonoBehaviour
         Debug.Log("Continue!");
 
         // Reload the current scene
-        SceneManager.LoadScene(nextSceneName);
+        SceneManager.LoadScene("Tutorial Level 2_New_Redone");
 
     }
 

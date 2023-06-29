@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class HighScoreManager : MonoBehaviour
 {
+    public string[] HSKeyLevelTut { get; private set; } = {
+        "LevelTut_HS1",
+        "LevelTut_HS2",
+        "LevelTut_HS3",
+        "LevelTut_HS4"};
+
     public string[] HSKeyLevel1 { get; private set; } = {
         "Level1_HS1",
         "Level1_HS2",
@@ -35,6 +41,7 @@ public class HighScoreManager : MonoBehaviour
         "Level5_HS3",
         "Level5_HS4"};
 
+    public int[] HSLevelTut { get; private set; } = { 0, 0, 0, 0 };
     public int[] HSLevel1 { get; private set; } = { 0, 0, 0, 0};
     public int[] HSLevel2 { get; private set; } = { 0, 0, 0, 0};
     public int[] HSLevel3 { get; private set; } = { 0, 0, 0, 0};
@@ -50,6 +57,7 @@ public class HighScoreManager : MonoBehaviour
 
     public void LoadHS()
     {
+        LoadLevelHS(HSKeyLevelTut, HSLevelTut);
         LoadLevelHS(HSKeyLevel1, HSLevel1);
         LoadLevelHS(HSKeyLevel2, HSLevel2);
         LoadLevelHS(HSKeyLevel3, HSLevel3);
@@ -71,6 +79,9 @@ public class HighScoreManager : MonoBehaviour
     {
         switch (level)
         {
+            case 0:
+                SaveLevelHS(level, HSLevelTut, newScore);
+                break;
             case 1:
                 SaveLevelHS(level, HSLevel1, newScore);
                 break;
@@ -101,6 +112,13 @@ public class HighScoreManager : MonoBehaviour
 
             switch (level)
             {
+                case 0:
+
+                    for (int i = 0; i < HSKeyLevel1.Length; i++)
+                    {
+                        PlayerPrefs.SetInt(HSKeyLevelTut[i], scoreList[i]);
+                    }
+                    break;
                 case 1:
 
                     for(int i = 0; i < HSKeyLevel1.Length; i++)
@@ -142,6 +160,9 @@ public class HighScoreManager : MonoBehaviour
     {
         switch (levelNumber)
         {
+            case 0:
+                return HSLevelTut;
+
             case 1:
                 return HSLevel1;
 
@@ -160,6 +181,11 @@ public class HighScoreManager : MonoBehaviour
             default:
                 return new int[] { -1, -1, -1, -1 };
         }
+    }
+
+    public void ResetHighScores()
+    {
+        PlayerPrefs.DeleteAll();
     }
     
 

@@ -24,8 +24,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial Level_New.unity
     guid: 9c26503f6814a4a12b96a351d47e4385
   - enabled: 1
-    path: Assets/Scenes/Tutorial Level 2_New.unity
-    guid: 5cdb7920c62f3453ca0436cdf2fe1028
+    path: Assets/Scenes/Tutorial Level 2_New_Redone.unity
+    guid: 9131aeb5905e34a9ea2827bc3788ea1c
   - enabled: 0
     path: Assets/Scenes/QuickLevel_1.unity
     guid: be8d2b76d6e6c42cc9cf2f99c88ee3c0

@@ -39,4 +39,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Level5_New Art");
 
     }
+
+    public void ResetButton()
+    {
+
+    }
 }

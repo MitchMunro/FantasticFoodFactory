@@ -84,21 +84,19 @@ public class UIManager : MonoBehaviour
                 .gameObject.transform.Find("StarScore2").GetComponent<TextMeshProUGUI>();
             StarScore3Text = HighScorePanel.transform.Find("StarPanel")
                 .gameObject.transform.Find("StarScore3").GetComponent<TextMeshProUGUI>();
+
+            HighScoresText = HighScorePanel.transform.Find("HighScoresText")
+            .GetComponent<TextMeshProUGUI>();
+
+            LastScoreText = HighScorePanel.transform.Find("LastScoreText")
+            .GetComponent<TextMeshProUGUI>();
         }
 
         if (countdownText != null) startFontSize = countdownText.fontSize;
 
-        if (HighScoresText != null)
-        {
-            HighScoresText = HighScorePanel.transform.Find("HighScoresText")
-            .GetComponent<TextMeshProUGUI>();
-        }
 
-        if (LastScoreText != null)
-        {
-            LastScoreText = HighScorePanel.transform.Find("LastScoreText")
-            .GetComponent<TextMeshProUGUI>();
-        }
+            
+
     }
 
     private void Start()
@@ -296,13 +294,13 @@ public class UIManager : MonoBehaviour
     public void SetStarScores(int star1Score, int star2Score, int star3Score)
     {
         if (StarScore1Text == null ||
-            StarScore1Text == null ||
-            StarScore1Text == null)
+            StarScore2Text == null ||
+            StarScore3Text == null)
             return;
 
         StarScore1Text.text = $"${star1Score}";
-        StarScore1Text.text = $"${star2Score}";
-        StarScore1Text.text = $"${star3Score}";
+        StarScore2Text.text = $"${star2Score}";
+        StarScore3Text.text = $"${star3Score}";
     }
 
     public void ToggleHighScorePanel()

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool isMainMenu = false;
+    public bool isTutorialLevel1;
     public UIManager uIManager;
     public HighScoreManager highScoreManager;
 
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
     private void SetHSPanel()
     {
         if (highScoreManager == null) return;
+        if (isTutorialLevel1) return;
 
         //Make all level Goal stars black
         uIManager.BlackenStar(1);
@@ -122,6 +124,13 @@ public class GameManager : MonoBehaviour
     {
         switch (levelNumber)
         {
+            case 0:
+                uIManager.SetHighScores(
+                    highScoreManager.HSLevelTut[0],
+                    highScoreManager.HSLevelTut[1],
+                    highScoreManager.HSLevelTut[2],
+                    highScoreManager.HSLevelTut[3]);
+                break;
             case 1:
                 uIManager.SetHighScores(
                     highScoreManager.HSLevel1[0],
@@ -335,12 +344,15 @@ public class GameManager : MonoBehaviour
         buttonState = ButtonState.Replay;
         uIManager.ButtonChangedToReplay();
 
-        highScoreManager.SaveHS(levelGoal.LevelNumber, money);
-        RetrieveHighScores(levelGoal.LevelNumber);
-        uIManager.SetLastScore(money);
-        CheckStars();
+        if (!isTutorialLevel1)
+        {
+            if (highScoreManager != null) highScoreManager.SaveHS(levelGoal.LevelNumber, money);
+            RetrieveHighScores(levelGoal.LevelNumber);
+            uIManager.SetLastScore(money);
+            CheckStars();
+            uIManager.OpenHighScorePanel();
 
-        uIManager.OpenHighScorePanel();
+        }
 
         if (money >= levelGoal.Star1Goal)
         {
