@@ -13720,6 +13720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 1457416973448770649, guid: 25675b6f1e4b24cdaac72117c324f62a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1457416973448770650, guid: 25675b6f1e4b24cdaac72117c324f62a, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -31550,6 +31554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMainMenu: 0
+  isTutorialLevel1: 0
   uIManager: {fileID: 2460328776682444423}
   highScoreManager: {fileID: 6326322853941651954}
   sliderMin: 0.5
