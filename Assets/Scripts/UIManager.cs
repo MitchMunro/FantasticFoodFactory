@@ -107,7 +107,6 @@ public class UIManager : MonoBehaviour
         
     }
 
-
     public void SetTextMoney(string newText)
     {
         moneyText.text = newText;
@@ -129,8 +128,6 @@ public class UIManager : MonoBehaviour
         statusPanel.SetActive(false);
 
         CloseHighScorePanel();
-
-        //PlayScoreBurst1();
 
         if (GameManager.Instance.buttonState == ButtonState.Pause)
         {
@@ -365,10 +362,9 @@ public class UIManager : MonoBehaviour
 
     public void PlayScoreBurst1()
     {
-        Debug.Log("test");
-
         if (scoreBurst1 == null) return;
 
         scoreBurst1.Play();
+
     }
 }

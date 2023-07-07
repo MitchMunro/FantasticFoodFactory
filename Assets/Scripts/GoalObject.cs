@@ -64,11 +64,11 @@ public class GoalObject : MonoBehaviour
     {
         var food = scoredObject.GetComponent<Food>();
 
-
         if (food != null &&
             food.foodType == foodCompTargetObject.foodType)
         {
             GameManager.Instance.UpdateScore(food.scoreValue);
+            GameManager.Instance.uIManager.PlayScoreBurst1();
         }
         else
         {
