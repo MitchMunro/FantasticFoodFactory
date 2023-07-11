@@ -9,10 +9,13 @@ public class GoalObject : MonoBehaviour
     private GameObject _previousTargetObject;
     private Food foodCompTargetObject;
     private GameObject foodIcon;
+    public GameObject scoreNumberEffectObject;
+    private GameObject scoringNumbers;
 
     private void Awake()
     {
         foodIcon = FindObjectInChildren("FoodIcon");
+        scoringNumbers = FindObjectInChildren("ScoringNumbers");
     }
 
     // Start is called before the first frame update
@@ -69,6 +72,7 @@ public class GoalObject : MonoBehaviour
         {
             GameManager.Instance.UpdateScore(food.scoreValue);
             GameManager.Instance.uIManager.PlayScoreBurst1();
+            TriggerScoreNumberEffect(food.scoreValue);
         }
         else
         {
@@ -89,6 +93,14 @@ public class GoalObject : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void TriggerScoreNumberEffect(int score)
+    {
+        GameObject effect = Instantiate(scoreNumberEffectObject, scoringNumbers.transform);
+        ScoreNumberEffect effectScript = effect.GetComponent<ScoreNumberEffect>();
+
+        effectScript.StartEffect(score);
     }
 
 }
