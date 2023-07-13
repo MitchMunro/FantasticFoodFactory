@@ -52,8 +52,6 @@ public class UIManager : MonoBehaviour
     private float HSPanelYAxisHidden = 2.7f;
     private bool IsHSPanelExtended = false;
 
-    public ParticleSystem scoreBurst1;
-
     private void Awake()
     {
         speedSlider = speedSliderGameObj.GetComponent<Slider>();
@@ -360,11 +358,5 @@ public class UIManager : MonoBehaviour
         isMoving = false;
     }
 
-    public void PlayScoreBurst1()
-    {
-        if (scoreBurst1 == null) return;
 
-        scoreBurst1.Play();
-
-    }
 }

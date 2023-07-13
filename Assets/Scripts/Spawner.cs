@@ -14,6 +14,8 @@ public class Spawner : MonoBehaviour
     public SpriteRenderer colorChangingSprite;
 
     public bool isMainMenuSpawner = false;
+    public ParticleSystem spawnerParticles;
+    public float particleDelay = 0.5f;
 
 
     private void Awake()
@@ -103,16 +105,31 @@ public class Spawner : MonoBehaviour
         return null;
     }
 
+    //private void PlaySpawnerParticles()
+    //{
+    //    if (spawnerParticles == null) return;
+
+    //    spawnerParticles.Play();
+    //}
+
     public IEnumerator SpawnFood()
     {
-        if (GameManager.Instance.gameState == GameState.FactoryPlayingTimer) Instantiate(
+        if (GameManager.Instance.gameState == GameState.FactoryPlayingTimer)
+        {
+
+            StartCoroutine(PlaySpawnerParticles());
+
+            Instantiate(
             foodToSpawn,
             this.gameObject.transform.position,
             foodToSpawn.transform.rotation,
             GameManager.Instance.FoodSpawnedParent.transform);
+        }
+
         yield return new WaitForSeconds(
             spawnRate / GameManager.Instance.SpeedSliderMultiplier());
         StartCoroutine(SpawnFood());
+        
 
     }
 
@@ -125,6 +142,17 @@ public class Spawner : MonoBehaviour
             GameManager.Instance.FoodSpawnedParent.transform);
         yield return new WaitForSeconds(spawnRate);
         StartCoroutine(SpawnFoodTutorial());
+    }
+
+    private IEnumerator PlaySpawnerParticles()
+    {
+        yield return new WaitForSeconds(particleDelay);
+
+        if (spawnerParticles != null)
+        {
+            spawnerParticles.Play();
+        }
+
     }
 }
 

@@ -11,6 +11,7 @@ public class GoalObject : MonoBehaviour
     private GameObject foodIcon;
     public GameObject scoreNumberEffectObject;
     private GameObject scoringNumbers;
+    public ParticleSystem scoreBurst1;
 
     private void Awake()
     {
@@ -71,7 +72,7 @@ public class GoalObject : MonoBehaviour
             food.foodType == foodCompTargetObject.foodType)
         {
             GameManager.Instance.UpdateScore(food.scoreValue);
-            GameManager.Instance.uIManager.PlayScoreBurst1();
+            PlayScoreBurst1();
             TriggerScoreNumberEffect(food.scoreValue);
         }
         else
@@ -101,6 +102,14 @@ public class GoalObject : MonoBehaviour
         ScoreNumberEffect effectScript = effect.GetComponent<ScoreNumberEffect>();
 
         effectScript.StartEffect(score);
+    }
+
+    public void PlayScoreBurst1()
+    {
+        if (scoreBurst1 == null) return;
+
+        scoreBurst1.Play();
+
     }
 
 }

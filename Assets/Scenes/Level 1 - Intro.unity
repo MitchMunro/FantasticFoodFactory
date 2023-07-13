@@ -3293,6 +3293,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8063277481286897146, guid: 2f9f504a0535f4d85a0c33511022ee86, type: 3}
+      propertyPath: scoreBurst1
+      value: 
+      objectReference: {fileID: 1811477306}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12884,18 +12888,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 904286459, guid: 09cab936a1fcd45c4a5d87ca4725d2c0, type: 3}
-      propertyPath: spawnRate
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 904286459, guid: 09cab936a1fcd45c4a5d87ca4725d2c0, type: 3}
-      propertyPath: foodToSpawn
-      value: 
-      objectReference: {fileID: 5649999932321951908, guid: aa4c1f66134f946d8a7f1aa335332dda, type: 3}
-    - target: {fileID: 1291865112, guid: 09cab936a1fcd45c4a5d87ca4725d2c0, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 71841cfe3d8cd4e17a90cd1080f96793, type: 3}
     - target: {fileID: 4836967266465236338, guid: 09cab936a1fcd45c4a5d87ca4725d2c0, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -25043,7 +25035,6 @@ MonoBehaviour:
   speedSliderGameObj: {fileID: 1817261517}
   HighScorePanel: {fileID: 1291570500}
   HSPanelMoveDuration: 0.2
-  scoreBurst1: {fileID: 1811477306}
   countdownText: {fileID: 12502288}
   fadeDuration: 1
   scaleSpeed: 1
